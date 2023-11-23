@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="patientModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Analysemedicale">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateAnalyse" Type="date" />
+    <Property Name="TypeAnalyse" Type="varchar" MaxLength="255" />
+    <Property Name="Resultats" Type="text" />
+    <Property Name="Laboratoire" Type="varchar" MaxLength="255" />
+    <Property Name="CommentairesResultats" Type="text" />
+    <Property Name="MedecinID" Type="int" />
+    <Property Name="PatientID" Type="int" />
+  </EntityType>
+  <EntityType Name="Antecedentmedical">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeAntecedent" Type="varchar" MaxLength="255" />
+    <Property Name="Description" Type="text" />
+    <Property Name="DateDiagnostic" Type="date" />
+    <Property Name="Statut" Type="varchar" MaxLength="20" />
+    <Property Name="PatientID" Type="int" />
+  </EntityType>
+  <EntityType Name="Medecin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="255" />
+    <Property Name="Prenom" Type="varchar" MaxLength="255" />
+    <Property Name="Specialite" Type="varchar" MaxLength="255" />
+    <Property Name="Telephone" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="AnneesExperience" Type="int" />
+    <Property Name="Certifications" Type="text" />
+    <Property Name="Disponibilite" Type="text" />
+  </EntityType>
+  <EntityType Name="Medicament">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomMedicament" Type="varchar" MaxLength="255" />
+    <Property Name="Description" Type="text" />
+    <Property Name="Posologie" Type="text" />
+    <Property Name="FormeMedicament" Type="varchar" MaxLength="50" />
+    <Property Name="Fabricant" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="255" />
+    <Property Name="Prenom" Type="varchar" MaxLength="255" />
+    <Property Name="DateNaissance" Type="date" />
+    <Property Name="Sexe" Type="varchar" MaxLength="8" />
+    <Property Name="Adresse" Type="varchar" MaxLength="255" />
+    <Property Name="Telephone" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="DerniereVisite" Type="date" />
+    <Property Name="GroupeSanguin" Type="varchar" MaxLength="5" />
+    <Property Name="NumeroAssuranceMaladie" Type="varchar" MaxLength="20" />
+    <Property Name="CommentairesMedicaux" Type="text" />
+  </EntityType>
+  <EntityType Name="Prescription">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DatePrescription" Type="date" />
+    <Property Name="PosologieGenerale" Type="text" />
+    <Property Name="Instructions" Type="text" />
+    <Property Name="MedecinID" Type="int" />
+    <Property Name="PatientID" Type="int" />
+  </EntityType>
+  <EntityType Name="Rendezvous">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateHeure" Type="datetime" />
+    <Property Name="MedecinID" Type="int" />
+    <Property Name="PatientID" Type="int" />
+    <Property Name="Motif" Type="varchar" MaxLength="255" />
+    <Property Name="Statut" Type="varchar" MaxLength="50" />
+    <Property Name="Remarques" Type="text" />
+    <Property Name="Urgence" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomUtilisateur" Type="varchar" MaxLength="50" />
+    <Property Name="MotDePasse" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK__Analyseme__Medec__6477ECF3">
+    <End Role="Medecin" Type="Self.Medecin" Multiplicity="0..1" />
+    <End Role="Analysemedicale" Type="Self.Analysemedicale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medecin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Analysemedicale">
+        <PropertyRef Name="MedecinID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Analyseme__Patie__656C112C">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Analysemedicale" Type="Self.Analysemedicale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Analysemedicale">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Anteceden__Patie__68487DD7">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Antecedentmedical" Type="Self.Antecedentmedical" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Antecedentmedical">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prescript__Medec__6D0D32F4">
+    <End Role="Medecin" Type="Self.Medecin" Multiplicity="0..1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medecin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="MedecinID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prescript__Patie__6E01572D">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rendezvou__Medec__70DDC3D8">
+    <End Role="Medecin" Type="Self.Medecin" Multiplicity="0..1" />
+    <End Role="Rendezvous" Type="Self.Rendezvous" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medecin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Rendezvous">
+        <PropertyRef Name="MedecinID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rendezvou__Patie__71D1E811">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Rendezvous" Type="Self.Rendezvous" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Rendezvous">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="patientModelStoreContainer">
+    <EntitySet Name="Analysemedicale" EntityType="Self.Analysemedicale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Antecedentmedical" EntityType="Self.Antecedentmedical" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medecin" EntityType="Self.Medecin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medicament" EntityType="Self.Medicament" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rendezvous" EntityType="Self.Rendezvous" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Analyseme__Medec__6477ECF3" Association="Self.FK__Analyseme__Medec__6477ECF3">
+      <End Role="Medecin" EntitySet="Medecin" />
+      <End Role="Analysemedicale" EntitySet="Analysemedicale" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Analyseme__Patie__656C112C" Association="Self.FK__Analyseme__Patie__656C112C">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Analysemedicale" EntitySet="Analysemedicale" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Anteceden__Patie__68487DD7" Association="Self.FK__Anteceden__Patie__68487DD7">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Antecedentmedical" EntitySet="Antecedentmedical" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prescript__Medec__6D0D32F4" Association="Self.FK__Prescript__Medec__6D0D32F4">
+      <End Role="Medecin" EntitySet="Medecin" />
+      <End Role="Prescription" EntitySet="Prescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prescript__Patie__6E01572D" Association="Self.FK__Prescript__Patie__6E01572D">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Prescription" EntitySet="Prescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rendezvou__Medec__70DDC3D8" Association="Self.FK__Rendezvou__Medec__70DDC3D8">
+      <End Role="Medecin" EntitySet="Medecin" />
+      <End Role="Rendezvous" EntitySet="Rendezvous" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rendezvou__Patie__71D1E811" Association="Self.FK__Rendezvou__Patie__71D1E811">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="Rendezvous" EntitySet="Rendezvous" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

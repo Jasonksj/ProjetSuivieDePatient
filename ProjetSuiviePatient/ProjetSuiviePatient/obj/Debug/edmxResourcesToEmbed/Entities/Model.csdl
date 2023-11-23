@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="patientModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Analysemedicale">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateAnalyse" Type="DateTime" Precision="0" />
+    <Property Name="TypeAnalyse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Resultats" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Laboratoire" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CommentairesResultats" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MedecinID" Type="Int32" />
+    <Property Name="PatientID" Type="Int32" />
+    <NavigationProperty Name="Medecin" Relationship="Self.FK__Analyseme__Medec__6477ECF3" FromRole="Analysemedicale" ToRole="Medecin" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK__Analyseme__Patie__656C112C" FromRole="Analysemedicale" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Antecedentmedical">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeAntecedent" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateDiagnostic" Type="DateTime" Precision="0" />
+    <Property Name="Statut" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PatientID" Type="Int32" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK__Anteceden__Patie__68487DD7" FromRole="Antecedentmedical" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Medecin">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Specialite" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AnneesExperience" Type="Int32" />
+    <Property Name="Certifications" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Disponibilite" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Analysemedicales" Relationship="Self.FK__Analyseme__Medec__6477ECF3" FromRole="Medecin" ToRole="Analysemedicale" />
+    <NavigationProperty Name="Prescriptions" Relationship="Self.FK__Prescript__Medec__6D0D32F4" FromRole="Medecin" ToRole="Prescription" />
+    <NavigationProperty Name="Rendezvous" Relationship="Self.FK__Rendezvou__Medec__70DDC3D8" FromRole="Medecin" ToRole="Rendezvous" />
+  </EntityType>
+  <EntityType Name="Medicament">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomMedicament" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Posologie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FormeMedicament" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Fabricant" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Prenom" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DateNaissance" Type="DateTime" Precision="0" />
+    <Property Name="Sexe" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Adresse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Telephone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="DerniereVisite" Type="DateTime" Precision="0" />
+    <Property Name="GroupeSanguin" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="NumeroAssuranceMaladie" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CommentairesMedicaux" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Analysemedicales" Relationship="Self.FK__Analyseme__Patie__656C112C" FromRole="Patient" ToRole="Analysemedicale" />
+    <NavigationProperty Name="Antecedentmedicals" Relationship="Self.FK__Anteceden__Patie__68487DD7" FromRole="Patient" ToRole="Antecedentmedical" />
+    <NavigationProperty Name="Prescriptions" Relationship="Self.FK__Prescript__Patie__6E01572D" FromRole="Patient" ToRole="Prescription" />
+    <NavigationProperty Name="Rendezvous" Relationship="Self.FK__Rendezvou__Patie__71D1E811" FromRole="Patient" ToRole="Rendezvous" />
+  </EntityType>
+  <EntityType Name="Prescription">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DatePrescription" Type="DateTime" Precision="0" />
+    <Property Name="PosologieGenerale" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Instructions" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MedecinID" Type="Int32" />
+    <Property Name="PatientID" Type="Int32" />
+    <NavigationProperty Name="Medecin" Relationship="Self.FK__Prescript__Medec__6D0D32F4" FromRole="Prescription" ToRole="Medecin" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK__Prescript__Patie__6E01572D" FromRole="Prescription" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="Rendezvou">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateHeure" Type="DateTime" Precision="3" />
+    <Property Name="MedecinID" Type="Int32" />
+    <Property Name="PatientID" Type="Int32" />
+    <Property Name="Motif" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Statut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Remarques" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Urgence" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Medecin" Relationship="Self.FK__Rendezvou__Medec__70DDC3D8" FromRole="Rendezvous" ToRole="Medecin" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK__Rendezvou__Patie__71D1E811" FromRole="Rendezvous" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomUtilisateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MotDePasse" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Analyseme__Medec__6477ECF3">
+    <End Role="Medecin" Type="Self.Medecin" Multiplicity="0..1" />
+    <End Role="Analysemedicale" Type="Self.Analysemedicale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medecin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Analysemedicale">
+        <PropertyRef Name="MedecinID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Analyseme__Patie__656C112C">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Analysemedicale" Type="Self.Analysemedicale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Analysemedicale">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Anteceden__Patie__68487DD7">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Antecedentmedical" Type="Self.Antecedentmedical" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Antecedentmedical">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prescript__Medec__6D0D32F4">
+    <End Role="Medecin" Type="Self.Medecin" Multiplicity="0..1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medecin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="MedecinID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rendezvou__Medec__70DDC3D8">
+    <End Role="Medecin" Type="Self.Medecin" Multiplicity="0..1" />
+    <End Role="Rendezvous" Type="Self.Rendezvou" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medecin">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Rendezvous">
+        <PropertyRef Name="MedecinID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Prescript__Patie__6E01572D">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rendezvou__Patie__71D1E811">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Rendezvous" Type="Self.Rendezvou" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Rendezvous">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PatientEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Analysemedicales" EntityType="Self.Analysemedicale" />
+    <EntitySet Name="Antecedentmedicals" EntityType="Self.Antecedentmedical" />
+    <EntitySet Name="Medecins" EntityType="Self.Medecin" />
+    <EntitySet Name="Medicaments" EntityType="Self.Medicament" />
+    <EntitySet Name="Patients" EntityType="Self.Patient" />
+    <EntitySet Name="Prescriptions" EntityType="Self.Prescription" />
+    <EntitySet Name="Rendezvous" EntityType="Self.Rendezvou" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Utilisateurs" EntityType="Self.Utilisateur" />
+    <AssociationSet Name="FK__Analyseme__Medec__6477ECF3" Association="Self.FK__Analyseme__Medec__6477ECF3">
+      <End Role="Medecin" EntitySet="Medecins" />
+      <End Role="Analysemedicale" EntitySet="Analysemedicales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Analyseme__Patie__656C112C" Association="Self.FK__Analyseme__Patie__656C112C">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Analysemedicale" EntitySet="Analysemedicales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Anteceden__Patie__68487DD7" Association="Self.FK__Anteceden__Patie__68487DD7">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Antecedentmedical" EntitySet="Antecedentmedicals" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prescript__Medec__6D0D32F4" Association="Self.FK__Prescript__Medec__6D0D32F4">
+      <End Role="Medecin" EntitySet="Medecins" />
+      <End Role="Prescription" EntitySet="Prescriptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rendezvou__Medec__70DDC3D8" Association="Self.FK__Rendezvou__Medec__70DDC3D8">
+      <End Role="Medecin" EntitySet="Medecins" />
+      <End Role="Rendezvous" EntitySet="Rendezvous" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Prescript__Patie__6E01572D" Association="Self.FK__Prescript__Patie__6E01572D">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Prescription" EntitySet="Prescriptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rendezvou__Patie__71D1E811" Association="Self.FK__Rendezvou__Patie__71D1E811">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Rendezvous" EntitySet="Rendezvous" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
