@@ -112,5 +112,17 @@ namespace ProjetSuiviePatient.DAO
                 return null;
             }
         }
+
+        public int PatientID()
+        {
+            try
+            {
+                return patientEntities.Patients.SingleOrDefault().ID;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erreur : {ex.Message}");
+            }
+        }
     }
 }

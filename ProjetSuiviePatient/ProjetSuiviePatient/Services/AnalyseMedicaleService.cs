@@ -1,4 +1,5 @@
-﻿using ProjetSuiviePatient.Entities;
+﻿using ProjetSuiviePatient.DAO;
+using ProjetSuiviePatient.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,109 +11,105 @@ namespace ProjetSuiviePatient.Services
 {
     public class AnalyseMedicaleService
     {
-        
+        AnalyseMedicaleDAO analyseMedicaleDAO;
 
         public AnalyseMedicaleService()
         {
-            
+            analyseMedicaleDAO = new AnalyseMedicaleDAO();
         }
 
-        //// CREATE
-        //public AnalyseMedicale CreateAnalyseMedicale(AnalyseMedicale analyseMedicale)
-        //{
-        //    try
-        //    {
-        //        this.analyseMedicale = analyseMedicale;
-        //        _context.AnalyseMedicales.Add(analyseMedicale);
-        //        _context.SaveChanges();
-        //        return this.analyseMedicale;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show
-        //            (
-        //                $"Enregistrement impossible de la demande !\nErreur : {ex.Message}",
-        //                "Erreur",
-        //                MessageBoxButtons.OK,
-        //                MessageBoxIcon.Error
-        //            );
-        //        return null;
-        //    }
-        //}
+        public Analysemedicale Save(Analysemedicale analyseMedicale)
+        {
+            try
+            {
+                return analyseMedicaleDAO.Save(analyseMedicale);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur : " + ex.Message);
+            }
+        }
 
-        //// READ
-        //public List<AnalyseMedicale> FindAllAnalyseMedicales()
-        //{
-        //    try
-        //    {
-        //        return _context.AnalyseMedicales.ToList();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception($"Erreur {ex.Message}");
-        //    }
-        //}
+        public bool Exists(int id)
+        {
+            return analyseMedicaleDAO.Exists(id);
+        }
 
-        //public AnalyseMedicale GetAnalyseMedicaleById(int analyseMedicaleId)
-        //{
-        //    try
-        //    {
-        //        return _context.AnalyseMedicales.Find(analyseMedicaleId);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception($"Erreur {ex.Message}");
-        //    }
-        //}
+        public List<Analysemedicale> FindAll()
+        {
+            return analyseMedicaleDAO.FindAll();
+        }
 
-        //// UPDATE
-        //public void UpdateAnalyseMedicale(AnalyseMedicale updatedAnalyseMedicale)
-        //{
-        //    try
-        //    {
-        //        var existingAnalyseMedicale = _context.AnalyseMedicales.Find(updatedAnalyseMedicale.ID);
+        public Analysemedicale FindById(int id)
+        {
+            try
+            {
+                return FindAll().Find(analyseMedicale => analyseMedicale.ID == id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur : " + ex.Message);
+            }
+        }
 
-        //        if (existingAnalyseMedicale != null)
-        //        {
-        //            existingAnalyseMedicale.DateAnalyse = updatedAnalyseMedicale.DateAnalyse;
-        //            existingAnalyseMedicale.TypeAnalyse = updatedAnalyseMedicale.TypeAnalyse;
-        //            existingAnalyseMedicale.Resultats = updatedAnalyseMedicale.Resultats;
-        //            existingAnalyseMedicale.Laboratoire = updatedAnalyseMedicale.Laboratoire;
-        //            existingAnalyseMedicale.CommentairesResultats = updatedAnalyseMedicale.CommentairesResultats;
-        //            _context.SaveChanges();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception($"Erreur {ex.Message}");
-        //    }
-        //}
+        public Analysemedicale Update(Analysemedicale analyseMedicale)
+        {
+            try
+            {
+                bool hasThisIdHere = Exists(analyseMedicale.ID);
+                if (hasThisIdHere)
+                    return analyseMedicaleDAO.Update(analyseMedicale);
+                else if (!hasThisIdHere)
+                {
+                    MessageBox.Show
+                        (
+                            $"Cette analyse medicale n'existe pas !",
+                            "Echec",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur : " + ex.Message);
+            }
+        }
 
-        //// DELETE
-        //public int DeleteAnalyseMedicale(int analyseMedicaletId)
-        //{
-        //    try
-        //    {
-        //        analyseMedicale = _context.AnalyseMedicales.FirstOrDefault
-        //        (
-        //            analyseMedicale => analyseMedicale.ID == analyseMedicaletId
-        //        );
-        //        _context.AnalyseMedicales.Remove(analyseMedicale);
-        //        _context.SaveChanges();
-        //        return analyseMedicale.ID;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show
-        //        (
-        //                $"Suppression du paiement de l'employé impossible !\nErreur : {ex.Message}",
-        //                "Echec",
-        //                MessageBoxButtons.OK,
-        //                MessageBoxIcon.Error
-        //            );
-        //        return -1;
-        //    }
-        //}
+        public int Delete(int id)
+        {
+            try
+            {
+                if (Exists(id))
+                    return analyseMedicaleDAO.Delete(id);
+                else
+                {
+                    MessageBox.Show
+                        (
+                            $"Cette analyse medicale n'existe pas !",
+                            "Echec",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    return -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur : " + ex.Message);
+            }
+        } 
+
+        public int MedecinID()
+        {
+            return analyseMedicaleDAO.MedecinID();
+        }
+
+        public int PatientID()
+        {
+            return analyseMedicaleDAO.PatientID();
+        }
 
     }
 }

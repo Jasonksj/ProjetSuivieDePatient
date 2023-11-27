@@ -18,7 +18,6 @@ namespace ProjetSuiviePatient.Services
             patientDAO = new PatientDAO();
         }
 
-        // CREATE
         public Patient Save(Patient patient)
         {
             try
@@ -29,7 +28,7 @@ namespace ProjetSuiviePatient.Services
                 {
                     MessageBox.Show
                         (
-                            $"La fonction '{patient.Nom} existe déjà !",
+                            $"Le patient '{patient.Nom} existe déjà !",
                             "Echec",
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Error
@@ -43,6 +42,11 @@ namespace ProjetSuiviePatient.Services
             }
         }
 
+        public bool Exists(int id)
+        {
+            return patientDAO.Exists(id);
+        }
+
         public bool Exists(string name)
         {
             try
@@ -50,7 +54,7 @@ namespace ProjetSuiviePatient.Services
                 List<Patient> patients = FindAll();
                 List<Patient> foundPatients = patients.FindAll
                     (
-                        fonction => fonction.Nom == name
+                        patient => patient.Nom == name
                     );
 
                 return foundPatients.Count > 0;
@@ -66,84 +70,101 @@ namespace ProjetSuiviePatient.Services
             return patientDAO.FindAll();
         }
 
-        //// READ
-        //public List<Patient> FindAllPatients()
-        //{
-        //    try
-        //    {
-        //        return _context.Patients.ToList();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception($"Erreur {ex.Message}");
-        //    }
-        //}
+        public Patient FindByName(string name)
+        {
+            List<Patient> patients = FindAll();
+            return patients.Find(patient => patient.Nom == name);
+        }
 
-        //public Patient GetPatientById(int patientId)
-        //{
-        //    try
-        //    {
-        //        return _context.Patients.Find(patientId);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception($"Erreur {ex.Message}");
-        //    }
-        //}
+        public Patient FindById(int id)
+        {
+            try
+            {
+                return FindAll().Find(patient => patient.ID == id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur : " + ex.Message);
+            }
+        }
 
-        //// UPDATE
-        //public void UpdatePatient(Patient updatedPatient)
-        //{
-        //    try
-        //    {
-        //        var existingPatient = _context.Patients.Find(updatedPatient.ID);
+        public List<Patient> FilterByName(string name)
+        {
+            try
+            {
+                return FindAll().Where
+                (
+                    patient => patient.Nom.IndexOf
+                    (
+                        name,
+                        StringComparison.CurrentCultureIgnoreCase
+                    ) != -1
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur : " + ex.Message);
+            }
+        }
 
-        //        if (existingPatient != null)
-        //        {
-        //            existingPatient.Nom = updatedPatient.Nom;
-        //            existingPatient.Prenom = updatedPatient.Prenom;
-        //            existingPatient.DateNaissance = updatedPatient.DateNaissance;
-        //            existingPatient.Sexe = updatedPatient.Sexe;
-        //            existingPatient.Adresse = updatedPatient.Adresse;
-        //            existingPatient.Telephone = updatedPatient.Telephone;
-        //            existingPatient.Email = updatedPatient.Email;
-        //            existingPatient.DerniereVisite = updatedPatient.DerniereVisite;
-        //            existingPatient.GroupeSanguin = updatedPatient.GroupeSanguin;
-        //            existingPatient.NumeroAssuranceMaladie = updatedPatient.NumeroAssuranceMaladie;
-        //            existingPatient.CommentairesMedicaux = updatedPatient.CommentairesMedicaux;
-        //            _context.SaveChanges();
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception($"Erreur {ex.Message}");
-        //    }
-        //}
+        public Patient Update(Patient patient)
+        {
+            try
+            {
+                bool hasThisIdHere = Exists(patient.ID);
+                bool hasThisNameHere = Exists(patient.Nom);
+                if (hasThisIdHere && !hasThisNameHere)
+                    return patientDAO.Update(patient);
+                else if (!hasThisIdHere)
+                {
+                    MessageBox.Show
+                        (
+                            $"Ce patient n'existe pas !",
+                            "Echec",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                }
+                else if (hasThisNameHere)
+                {
+                    MessageBox.Show
+                        (
+                            $"Le patient '{patient.Nom}' existe déjà !",
+                            "Echec",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur : " + ex.Message);
+            }
+        }
 
-        //// DELETE
-        //public int DeletePatient(int patienttId)
-        //{
-        //    try
-        //    {
-        //        patient = _context.Patients.FirstOrDefault
-        //        (
-        //            patient => patient.ID == patienttId
-        //        );
-        //        _context.Patients.Remove(patient);
-        //        _context.SaveChanges();
-        //        return patient.ID;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show
-        //        (
-        //                $"Suppression du paiement de l'employé impossible !\nErreur : {ex.Message}",
-        //                "Echec",
-        //                MessageBoxButtons.OK,
-        //                MessageBoxIcon.Error
-        //            );
-        //        return -1;
-        //    }
-        //}
+        public int Delete(int id)
+        {
+            try
+            {
+                if (Exists(id))
+                    return patientDAO.Delete(id);
+                else
+                {
+                    MessageBox.Show
+                        (
+                            $"Ce patient n'existe pas !",
+                            "Echec",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                    return -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur : " + ex.Message);
+            }
+        }
     }
 }

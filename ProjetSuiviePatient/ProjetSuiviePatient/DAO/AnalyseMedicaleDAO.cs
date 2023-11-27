@@ -91,6 +91,30 @@ namespace ProjetSuiviePatient.DAO
             }
         }
 
+        public int MedecinID()
+        {
+            try
+            {
+                return patientEntities.Medecins.SingleOrDefault().ID;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erreur : {ex.Message}");
+            }
+        }
+
+        public int PatientID()
+        {
+            try
+            {
+                return patientEntities.Patients.SingleOrDefault().ID;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erreur : {ex.Message}");
+            }
+        }
+
         public Analysemedicale Update(Analysemedicale analyseMedicale)
         {
             try

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProjetSuiviePatient.DAO;
+using ProjetSuiviePatient.Entities;
+using ProjetSuiviePatient.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +11,62 @@ namespace ProjetSuiviePatient.Controllers
 {
     public class AnalyseMedicaleControllers
     {
+        AnalyseMedicaleService analyseMedicaleService;
+
+        public AnalyseMedicaleControllers()
+        {
+            analyseMedicaleService = new AnalyseMedicaleService();
+        }
+
+        public Analysemedicale Save(DateTime DateAnalyse, string TypeAnalyse, string Resultats, string Laboratoire,
+            string CommentairesResultats, int MedecinID, int PatientID)
+        {
+            Analysemedicale analysemedicale = new Analysemedicale
+            {
+                DateAnalyse = DateAnalyse,
+                TypeAnalyse = TypeAnalyse,
+                Resultats = Resultats,
+                Laboratoire = Laboratoire,
+                CommentairesResultats = CommentairesResultats,
+                MedecinID = MedecinID,
+                PatientID = PatientID
+            };
+            return analyseMedicaleService.Save(analysemedicale);
+        }
+
+        public List<Analysemedicale> FindAll()
+        {
+            return analyseMedicaleService.FindAll();
+        }
+
+        public Analysemedicale Update(Analysemedicale analysemedicale)
+        {
+            return analyseMedicaleService.Update(analysemedicale);
+        }
+
+        public int Delete(int id)
+        {
+            return analyseMedicaleService.Delete(id);
+        }
+
+        public bool Exists(int id)
+        {
+            return analyseMedicaleService.Exists(id);
+        }
+
+        public Analysemedicale FindById(int id)
+        {
+            return analyseMedicaleService.FindById(id);
+        }
+
+        public int MedecinID()
+        {
+            return analyseMedicaleService.MedecinID();
+        }
+
+        public int PatientID()
+        {
+            return analyseMedicaleService.PatientID();
+        }
     }
 }
