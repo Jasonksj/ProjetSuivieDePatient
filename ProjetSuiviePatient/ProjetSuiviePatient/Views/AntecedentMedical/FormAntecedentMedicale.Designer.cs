@@ -30,7 +30,6 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
             this.titre = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -43,8 +42,6 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.patientID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -54,20 +51,11 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
             this.datediagnostic = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::ProjetSuiviePatient.Properties.Resources.icons8_minimize_window_32;
-            this.button2.Location = new System.Drawing.Point(1181, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(21, 23);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // titre
             // 
@@ -75,9 +63,9 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
             this.titre.Font = new System.Drawing.Font("Rockwell", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titre.Location = new System.Drawing.Point(344, 9);
             this.titre.Name = "titre";
-            this.titre.Size = new System.Drawing.Size(402, 34);
+            this.titre.Size = new System.Drawing.Size(513, 34);
             this.titre.TabIndex = 5;
-            this.titre.Text = "Ajout d\'un antecedent medical";
+            this.titre.Text = "AJOUT D\'UN ANTECEDENT MEDICAL";
             // 
             // label6
             // 
@@ -216,28 +204,6 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
             this.panel16.Size = new System.Drawing.Size(3, 702);
             this.panel16.TabIndex = 44;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProjetSuiviePatient.Properties.Resources.AntecedentMedicale;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 56);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(659, 628);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 33;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::ProjetSuiviePatient.Properties.Resources.icons8_close_window_32;
-            this.button1.Location = new System.Drawing.Point(1208, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(21, 23);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // patientID
             // 
             this.patientID.FormattingEnabled = true;
@@ -331,6 +297,40 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(321, 3);
             this.panel3.TabIndex = 51;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProjetSuiviePatient.Properties.Resources.AntecedentMedicale;
+            this.pictureBox1.Location = new System.Drawing.Point(9, 56);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(659, 628);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::ProjetSuiviePatient.Properties.Resources.icons8_minimize_window_32;
+            this.button2.Location = new System.Drawing.Point(1181, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(21, 23);
+            this.button2.TabIndex = 1;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::ProjetSuiviePatient.Properties.Resources.icons8_close_window_32;
+            this.button1.Location = new System.Drawing.Point(1208, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(21, 23);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FormAntecedentMedicale
             // 

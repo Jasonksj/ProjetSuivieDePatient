@@ -1,5 +1,5 @@
 ﻿using ProjetSuiviePatient.Controllers;
-using ProjetSuiviePatient.Views.Medicament;
+using ProjetSuiviePatient.Views.AnalyseMedicale;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,28 +10,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjetSuiviePatient.Views.Prescription
+namespace ProjetSuiviePatient.Views.AntecedentMedical
 {
-    public partial class FormListPrescription : UserControl
+    public partial class FormListAntecedentMedicale : UserControl
     {
-        private static FormListPrescription formList;
+        private static FormListAntecedentMedicale formList;
 
-        PrescriptionControllers prescriptionControllers;
+        AntecedentMedicaleControllers antecedentMedicaleControllers;
 
         string defaultInput = "Search...";
 
-        public static FormListPrescription Instance
+        public static FormListAntecedentMedicale Instance
         {
             get
             {
                 if (formList == null)
                 {
-                    formList = new FormListPrescription();
+                    formList = new FormListAntecedentMedicale();
                 }
                 return formList;
             }
         }
-        public FormListPrescription()
+        public FormListAntecedentMedicale()
         {
             InitializeComponent();
         }

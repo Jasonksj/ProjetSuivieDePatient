@@ -9,31 +9,31 @@ using System.Windows.Forms;
 
 namespace ProjetSuiviePatient.DAO
 {
-    public class PatientDAO
+    public class AnalyseMedicaleDAO
     {
         PatientEntities patientEntities;
-        Patient patient;
+        Analysemedicale analyseMedicale;
 
-        public PatientDAO()
+        public AnalyseMedicaleDAO()
         {
             patientEntities = new PatientEntities();
-            patient = new Patient();
+            analyseMedicale = new Analysemedicale();
         }
 
-        public Patient Save(Patient patient)
+        public Analysemedicale Save(Analysemedicale analyseMedicale)
         {
             try
             {
-                this.patient = patient;
-                patientEntities.Patients.Add(this.patient);
+                this.analyseMedicale = analyseMedicale;
+                patientEntities.Analysemedicales.Add(this.analyseMedicale);
                 patientEntities.SaveChanges();
-                return this.patient;
+                return this.analyseMedicale;
             }
             catch (Exception ex)
             {
                 MessageBox.Show
                     (
-                        $"Enregistrement impossible du patient '{this.patient.Nom}'!\nErreur : {ex.Message}",
+                        $"Enregistrement impossible de l'analyse medicale du medecin '{this.analyseMedicale.Medecin.Nom}'!\nErreur : {ex.Message}",
                         "Echec",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
@@ -42,11 +42,11 @@ namespace ProjetSuiviePatient.DAO
             }
         }
 
-        public List<Patient> FindAll()
+        public List<Analysemedicale> FindAll()
         {
             try
             {
-                return patientEntities.Patients.ToList();
+                return patientEntities.Analysemedicales.ToList();
             }
             catch (Exception ex)
             {
@@ -58,19 +58,19 @@ namespace ProjetSuiviePatient.DAO
         {
             try
             {
-                patient = patientEntities.Patients.FirstOrDefault
+                analyseMedicale = patientEntities.Analysemedicales.FirstOrDefault
                     (
-                        patient => patient.ID == id
+                        analyseMedicale => analyseMedicale.ID == id
                     );
-                patientEntities.Patients.Remove(patient);
+                patientEntities.Analysemedicales.Remove(analyseMedicale);
                 patientEntities.SaveChanges();
-                return patient.ID;
+                return analyseMedicale.ID;
             }
             catch (Exception ex)
             {
                 MessageBox.Show
                     (
-                        $"Suppression impossible du patient '{this.patient.Nom}'!\nErreur : {ex.Message}",
+                        $"Suppression impossible de l'analyse medicale du medecin '{this.analyseMedicale.Medecin.Nom}'!\nErreur : {ex.Message}",
                         "Echec",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
@@ -83,7 +83,7 @@ namespace ProjetSuiviePatient.DAO
         {
             try
             {
-                return patientEntities.Patients.SingleOrDefault(patient => patient.ID == id) != null;
+                return patientEntities.Analysemedicales.SingleOrDefault(analyseMedicale => analyseMedicale.ID == id) != null;
             }
             catch (Exception ex)
             {
@@ -91,20 +91,20 @@ namespace ProjetSuiviePatient.DAO
             }
         }
 
-        public Patient Update(Patient patient)
+        public Analysemedicale Update(Analysemedicale analyseMedicale)
         {
             try
             {
-                this.patient = patient;
-                patientEntities.Patients.AddOrUpdate(this.patient);
+                this.analyseMedicale = analyseMedicale;
+                patientEntities.Analysemedicales.AddOrUpdate(this.analyseMedicale);
                 patientEntities.SaveChanges();
-                return this.patient;
+                return this.analyseMedicale;
             }
             catch (Exception ex)
             {
                 MessageBox.Show
                     (
-                        $"Modification impossible du patient '{this.patient.Nom}'!\nErreur : {ex.Message}",
+                        $"Modification impossible de l'analyse medicale du medecin  '{this.analyseMedicale.Medecin.Nom}'!\nErreur : {ex.Message}",
                         "Echec",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error

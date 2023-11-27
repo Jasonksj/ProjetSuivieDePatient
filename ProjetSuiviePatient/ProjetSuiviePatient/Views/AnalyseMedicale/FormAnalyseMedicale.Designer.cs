@@ -69,9 +69,9 @@ namespace ProjetSuiviePatient.Views.AnalyseMedicale
             this.titre.Font = new System.Drawing.Font("Rockwell", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titre.Location = new System.Drawing.Point(344, 9);
             this.titre.Name = "titre";
-            this.titre.Size = new System.Drawing.Size(390, 34);
+            this.titre.Size = new System.Drawing.Size(476, 34);
             this.titre.TabIndex = 5;
-            this.titre.Text = "Ajout d\'une analyse medicale";
+            this.titre.Text = "AJOUT D\'UNE ANALYSE MEDICALE";
             // 
             // label4
             // 

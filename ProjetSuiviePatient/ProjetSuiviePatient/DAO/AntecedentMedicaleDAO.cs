@@ -9,31 +9,31 @@ using System.Windows.Forms;
 
 namespace ProjetSuiviePatient.DAO
 {
-    public class PatientDAO
+    public class AntecedentMedicaleDAO
     {
         PatientEntities patientEntities;
-        Patient patient;
+        Antecedentmedical antecedentMedicale;
 
-        public PatientDAO()
+        public AntecedentMedicaleDAO()
         {
             patientEntities = new PatientEntities();
-            patient = new Patient();
+            antecedentMedicale = new Antecedentmedical();
         }
 
-        public Patient Save(Patient patient)
+        public Antecedentmedical Save(Antecedentmedical antecedentMedicale)
         {
             try
             {
-                this.patient = patient;
-                patientEntities.Patients.Add(this.patient);
+                this.antecedentMedicale = antecedentMedicale;
+                patientEntities.Antecedentmedicals.Add(this.antecedentMedicale);
                 patientEntities.SaveChanges();
-                return this.patient;
+                return this.antecedentMedicale;
             }
             catch (Exception ex)
             {
                 MessageBox.Show
                     (
-                        $"Enregistrement impossible du patient '{this.patient.Nom}'!\nErreur : {ex.Message}",
+                        $"Enregistrement impossible de l'antecedent medical du patient '{this.antecedentMedicale.Patient.Nom}'!\nErreur : {ex.Message}",
                         "Echec",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
@@ -42,11 +42,11 @@ namespace ProjetSuiviePatient.DAO
             }
         }
 
-        public List<Patient> FindAll()
+        public List<Antecedentmedical> FindAll()
         {
             try
             {
-                return patientEntities.Patients.ToList();
+                return patientEntities.Antecedentmedicals.ToList();
             }
             catch (Exception ex)
             {
@@ -58,19 +58,19 @@ namespace ProjetSuiviePatient.DAO
         {
             try
             {
-                patient = patientEntities.Patients.FirstOrDefault
+                antecedentMedicale = patientEntities.Antecedentmedicals.FirstOrDefault
                     (
-                        patient => patient.ID == id
+                        antecedentMedicale => antecedentMedicale.ID == id
                     );
-                patientEntities.Patients.Remove(patient);
+                patientEntities.Antecedentmedicals.Remove(antecedentMedicale);
                 patientEntities.SaveChanges();
-                return patient.ID;
+                return antecedentMedicale.ID;
             }
             catch (Exception ex)
             {
                 MessageBox.Show
                     (
-                        $"Suppression impossible du patient '{this.patient.Nom}'!\nErreur : {ex.Message}",
+                        $"Suppression impossible de l'antecedent medical du patient '{this.antecedentMedicale.Patient.Nom}'!\nErreur : {ex.Message}",
                         "Echec",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
@@ -83,7 +83,7 @@ namespace ProjetSuiviePatient.DAO
         {
             try
             {
-                return patientEntities.Patients.SingleOrDefault(patient => patient.ID == id) != null;
+                return patientEntities.Antecedentmedicals.SingleOrDefault(antecedentMedicale => antecedentMedicale.ID == id) != null;
             }
             catch (Exception ex)
             {
@@ -91,20 +91,20 @@ namespace ProjetSuiviePatient.DAO
             }
         }
 
-        public Patient Update(Patient patient)
+        public Antecedentmedical Update(Antecedentmedical antecedentMedicale)
         {
             try
             {
-                this.patient = patient;
-                patientEntities.Patients.AddOrUpdate(this.patient);
+                this.antecedentMedicale = antecedentMedicale;
+                patientEntities.Antecedentmedicals.AddOrUpdate(this.antecedentMedicale);
                 patientEntities.SaveChanges();
-                return this.patient;
+                return this.antecedentMedicale;
             }
             catch (Exception ex)
             {
                 MessageBox.Show
                     (
-                        $"Modification impossible du patient '{this.patient.Nom}'!\nErreur : {ex.Message}",
+                        $"Modification impossible de l'antecedent medical du patient  '{this.antecedentMedicale.Patient.Nom}'!\nErreur : {ex.Message}",
                         "Echec",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error

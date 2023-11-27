@@ -9,31 +9,31 @@ using System.Windows.Forms;
 
 namespace ProjetSuiviePatient.DAO
 {
-    public class PatientDAO
+    public class MedecinDAO
     {
         PatientEntities patientEntities;
-        Patient patient;
+        Medecin medecin;
 
-        public PatientDAO()
+        public MedecinDAO()
         {
             patientEntities = new PatientEntities();
-            patient = new Patient();
+            medecin = new Medecin();
         }
 
-        public Patient Save(Patient patient)
+        public Medecin Save(Medecin medecin)
         {
             try
             {
-                this.patient = patient;
-                patientEntities.Patients.Add(this.patient);
+                this.medecin = medecin;
+                patientEntities.Medecins.Add(this.medecin);
                 patientEntities.SaveChanges();
-                return this.patient;
+                return this.medecin;
             }
             catch (Exception ex)
             {
                 MessageBox.Show
                     (
-                        $"Enregistrement impossible du patient '{this.patient.Nom}'!\nErreur : {ex.Message}",
+                        $"Enregistrement impossible du medecin '{this.medecin.Nom}'!\nErreur : {ex.Message}",
                         "Echec",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
@@ -42,11 +42,11 @@ namespace ProjetSuiviePatient.DAO
             }
         }
 
-        public List<Patient> FindAll()
+        public List<Medecin> FindAll()
         {
             try
             {
-                return patientEntities.Patients.ToList();
+                return patientEntities.Medecins.ToList();
             }
             catch (Exception ex)
             {
@@ -58,19 +58,19 @@ namespace ProjetSuiviePatient.DAO
         {
             try
             {
-                patient = patientEntities.Patients.FirstOrDefault
+                medecin = patientEntities.Medecins.FirstOrDefault
                     (
-                        patient => patient.ID == id
+                        medecin => medecin.ID == id
                     );
-                patientEntities.Patients.Remove(patient);
+                patientEntities.Medecins.Remove(medecin);
                 patientEntities.SaveChanges();
-                return patient.ID;
+                return medecin.ID;
             }
             catch (Exception ex)
             {
                 MessageBox.Show
                     (
-                        $"Suppression impossible du patient '{this.patient.Nom}'!\nErreur : {ex.Message}",
+                        $"Suppression impossible du Medecin '{this.medecin.Nom}'!\nErreur : {ex.Message}",
                         "Echec",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
@@ -83,7 +83,7 @@ namespace ProjetSuiviePatient.DAO
         {
             try
             {
-                return patientEntities.Patients.SingleOrDefault(patient => patient.ID == id) != null;
+                return patientEntities.Medecins.SingleOrDefault(medecin => medecin.ID == id) != null;
             }
             catch (Exception ex)
             {
@@ -91,25 +91,25 @@ namespace ProjetSuiviePatient.DAO
             }
         }
 
-        public Patient Update(Patient patient)
+        public Medecin Update(Medecin medecin)
         {
             try
             {
-                this.patient = patient;
-                patientEntities.Patients.AddOrUpdate(this.patient);
+                this.medecin = medecin;
+                patientEntities.Medecins.AddOrUpdate(this.medecin);
                 patientEntities.SaveChanges();
-                return this.patient;
+                return this.medecin;
             }
             catch (Exception ex)
             {
                 MessageBox.Show
                     (
-                        $"Modification impossible du patient '{this.patient.Nom}'!\nErreur : {ex.Message}",
+                        $"Modification impossible du Medecin '{this.medecin.Nom}'!\nErreur : {ex.Message}",
                         "Echec",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error
                     );
-                return null;
+                return null; 
             }
         }
     }

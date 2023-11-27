@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProjetSuiviePatient.Views.User
+namespace ProjetSuiviePatient.Views.Medecin
 {
-    public partial class FormLogin : Form
+    public partial class FormMedecin : Form
     {
-        public FormLogin()
+        public FormMedecin()
         {
             InitializeComponent();
-        }
-
-        private void FormLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

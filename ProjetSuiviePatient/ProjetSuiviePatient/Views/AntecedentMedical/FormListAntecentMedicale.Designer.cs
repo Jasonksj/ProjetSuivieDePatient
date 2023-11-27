@@ -1,8 +1,8 @@
 ﻿using System.Windows.Forms;
 
-namespace ProjetSuiviePatient.Views.Medicament
+namespace ProjetSuiviePatient.Views.AntecedentMedical
 {
-    partial class FormListMedicament
+    partial class FormListAntecedentMedicale
     {
         /// <summary>
         /// Required designer variable.
@@ -35,11 +35,11 @@ namespace ProjetSuiviePatient.Views.Medicament
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.DateAnalyse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateAnalyse = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sexe = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Commentaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Telephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
@@ -70,11 +70,11 @@ namespace ProjetSuiviePatient.Views.Medicament
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
-            this.DateAnalyse,
             this.Column1,
             this.Prenom,
+            this.DateAnalyse,
             this.Sexe,
-            this.Commentaire});
+            this.Telephone});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F);
@@ -86,7 +86,7 @@ namespace ProjetSuiviePatient.Views.Medicament
             this.dataGridView1.Location = new System.Drawing.Point(47, 153);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(1419, 709);
+            this.dataGridView1.Size = new System.Drawing.Size(1419, 693);
             this.dataGridView1.TabIndex = 0;
             // 
             // id
@@ -95,31 +95,31 @@ namespace ProjetSuiviePatient.Views.Medicament
             this.id.MinimumWidth = 6;
             this.id.Name = "id";
             // 
-            // DateAnalyse
-            // 
-            this.DateAnalyse.HeaderText = "Nom";
-            this.DateAnalyse.Name = "DateAnalyse";
-            // 
             // Column1
             // 
-            this.Column1.HeaderText = "Description";
+            this.Column1.HeaderText = "Type Antecedent";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             // 
             // Prenom
             // 
-            this.Prenom.HeaderText = "Posologie";
+            this.Prenom.HeaderText = "Description";
             this.Prenom.Name = "Prenom";
+            // 
+            // DateAnalyse
+            // 
+            this.DateAnalyse.HeaderText = "Date Diagnostic";
+            this.DateAnalyse.Name = "DateAnalyse";
             // 
             // Sexe
             // 
-            this.Sexe.HeaderText = "Forme";
+            this.Sexe.HeaderText = "Statut";
             this.Sexe.Name = "Sexe";
             // 
-            // Commentaire
+            // Telephone
             // 
-            this.Commentaire.HeaderText = "Fabricant";
-            this.Commentaire.Name = "Commentaire";
+            this.Telephone.HeaderText = "Patient";
+            this.Telephone.Name = "Telephone";
             // 
             // label1
             // 
@@ -127,9 +127,9 @@ namespace ProjetSuiviePatient.Views.Medicament
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(583, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(322, 26);
+            this.label1.Size = new System.Drawing.Size(448, 26);
             this.label1.TabIndex = 1;
-            this.label1.Text = "LISTE DES MEDICAMENTS";
+            this.label1.Text = "LISTE DES ANTECEDENTS MEDICALS";
             // 
             // label2
             // 
@@ -198,7 +198,7 @@ namespace ProjetSuiviePatient.Views.Medicament
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(43, 865);
+            this.label3.Location = new System.Drawing.Point(43, 849);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(241, 22);
             this.label3.TabIndex = 1;
@@ -208,13 +208,13 @@ namespace ProjetSuiviePatient.Views.Medicament
             // 
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
-            this.lblCount.Location = new System.Drawing.Point(290, 865);
+            this.lblCount.Location = new System.Drawing.Point(290, 849);
             this.lblCount.Name = "lblCount";
             this.lblCount.Size = new System.Drawing.Size(40, 22);
             this.lblCount.TabIndex = 1;
             this.lblCount.Text = "???";
             // 
-            // FormListMedicament
+            // FormListAntecedentMedicale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -229,8 +229,8 @@ namespace ProjetSuiviePatient.Views.Medicament
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "FormListMedicament";
-            this.Size = new System.Drawing.Size(1510, 898);
+            this.Name = "FormListAntecedentMedicale";
+            this.Size = new System.Drawing.Size(1510, 882);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -250,10 +250,10 @@ namespace ProjetSuiviePatient.Views.Medicament
         private Label label3;
         private Label lblCount;
         private DataGridViewCheckBoxColumn id;
-        private DataGridViewTextBoxColumn DateAnalyse;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Prenom;
+        private DataGridViewTextBoxColumn DateAnalyse;
         private DataGridViewTextBoxColumn Sexe;
-        private DataGridViewTextBoxColumn Commentaire;
+        private DataGridViewTextBoxColumn Telephone;
     }
 }

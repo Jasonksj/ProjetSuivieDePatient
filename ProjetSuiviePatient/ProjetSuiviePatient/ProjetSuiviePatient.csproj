@@ -69,7 +69,14 @@
     <Compile Include="Controllers\PrescriptionControllers.cs" />
     <Compile Include="Controllers\RendezVousControllers.cs" />
     <Compile Include="Controllers\UserControllers.cs" />
+    <Compile Include="DAO\AnalyseMedicaleDAO.cs" />
+    <Compile Include="DAO\AntecedentMedicaleDAO.cs" />
+    <Compile Include="DAO\MedecinDAO.cs" />
+    <Compile Include="DAO\MedicamentDAO.cs" />
     <Compile Include="DAO\PatientDAO.cs" />
+    <Compile Include="DAO\PrescriptionDAO.cs" />
+    <Compile Include="DAO\RendezVousDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
     <Compile Include="Entities\Analysemedicale.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -158,11 +165,23 @@
     <Compile Include="Views\Medecin\FormListMedecin.Designer.cs">
       <DependentUpon>FormListMedecin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Medecin\FormMedecin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medecin\FormMedecin.Designer.cs">
+      <DependentUpon>FormMedecin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Medicament\FormListMedicament.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Views\Medicament\FormListMedicament.Designer.cs">
       <DependentUpon>FormListMedicament.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Medicament\FormMedicament.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Medicament\FormMedicament.Designer.cs">
+      <DependentUpon>FormMedicament.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Patient\FormListPatient.cs">
       <SubType>UserControl</SubType>
@@ -246,8 +265,14 @@
     <EmbeddedResource Include="Views\Medecin\FormListMedecin.resx">
       <DependentUpon>FormListMedecin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medecin\FormMedecin.resx">
+      <DependentUpon>FormMedecin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Medicament\FormListMedicament.resx">
       <DependentUpon>FormListMedicament.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Medicament\FormMedicament.resx">
+      <DependentUpon>FormMedicament.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Patient\FormListPatient.resx">
       <DependentUpon>FormListPatient.cs</DependentUpon>

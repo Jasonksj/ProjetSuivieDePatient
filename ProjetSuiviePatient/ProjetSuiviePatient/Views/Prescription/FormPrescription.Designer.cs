@@ -30,7 +30,6 @@ namespace ProjetSuiviePatient.Views.Prescription
         /// </summary>
         private void InitializeComponent()
         {
-            this.button2 = new System.Windows.Forms.Button();
             this.titre = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -46,28 +45,17 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.patientID = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_resultat = new Guna.UI2.WinForms.Guna2TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::ProjetSuiviePatient.Properties.Resources.icons8_minimize_window_32;
-            this.button2.Location = new System.Drawing.Point(1181, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(21, 23);
-            this.button2.TabIndex = 1;
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // titre
             // 
@@ -101,7 +89,7 @@ namespace ProjetSuiviePatient.Views.Prescription
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(692, 144);
+            this.label6.Location = new System.Drawing.Point(693, 199);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(154, 21);
             this.label6.TabIndex = 17;
@@ -110,7 +98,7 @@ namespace ProjetSuiviePatient.Views.Prescription
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel5.Location = new System.Drawing.Point(853, 162);
+            this.panel5.Location = new System.Drawing.Point(854, 217);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(321, 3);
             this.panel5.TabIndex = 16;
@@ -130,21 +118,22 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.txt_type.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.txt_type.ForeColor = System.Drawing.Color.DimGray;
             this.txt_type.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_type.Location = new System.Drawing.Point(853, 135);
+            this.txt_type.Location = new System.Drawing.Point(854, 134);
             this.txt_type.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_type.Multiline = true;
             this.txt_type.Name = "txt_type";
             this.txt_type.PasswordChar = '\0';
             this.txt_type.PlaceholderForeColor = System.Drawing.Color.White;
             this.txt_type.PlaceholderText = "";
             this.txt_type.SelectedText = "";
-            this.txt_type.Size = new System.Drawing.Size(321, 26);
+            this.txt_type.Size = new System.Drawing.Size(321, 82);
             this.txt_type.TabIndex = 15;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(748, 259);
+            this.label10.Location = new System.Drawing.Point(749, 385);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(74, 21);
             this.label10.TabIndex = 29;
@@ -153,7 +142,7 @@ namespace ProjetSuiviePatient.Views.Prescription
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel9.Location = new System.Drawing.Point(853, 277);
+            this.panel9.Location = new System.Drawing.Point(854, 403);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(321, 3);
             this.panel9.TabIndex = 28;
@@ -167,7 +156,7 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.btn_valider.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_valider.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_valider.ForeColor = System.Drawing.Color.White;
-            this.btn_valider.Location = new System.Drawing.Point(853, 416);
+            this.btn_valider.Location = new System.Drawing.Point(854, 507);
             this.btn_valider.Name = "btn_valider";
             this.btn_valider.Size = new System.Drawing.Size(154, 37);
             this.btn_valider.TabIndex = 34;
@@ -183,7 +172,7 @@ namespace ProjetSuiviePatient.Views.Prescription
             // medecinID
             // 
             this.medecinID.FormattingEnabled = true;
-            this.medecinID.Location = new System.Drawing.Point(853, 257);
+            this.medecinID.Location = new System.Drawing.Point(854, 383);
             this.medecinID.Name = "medecinID";
             this.medecinID.Size = new System.Drawing.Size(321, 21);
             this.medecinID.TabIndex = 38;
@@ -224,32 +213,10 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.panel16.Size = new System.Drawing.Size(3, 592);
             this.panel16.TabIndex = 44;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProjetSuiviePatient.Properties.Resources.Prescription;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 56);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(644, 513);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 33;
-            this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::ProjetSuiviePatient.Properties.Resources.icons8_close_window_32;
-            this.button1.Location = new System.Drawing.Point(1208, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(21, 23);
-            this.button1.TabIndex = 0;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // patientID
             // 
             this.patientID.FormattingEnabled = true;
-            this.patientID.Location = new System.Drawing.Point(853, 311);
+            this.patientID.Location = new System.Drawing.Point(854, 437);
             this.patientID.Name = "patientID";
             this.patientID.Size = new System.Drawing.Size(321, 21);
             this.patientID.TabIndex = 47;
@@ -258,7 +225,7 @@ namespace ProjetSuiviePatient.Views.Prescription
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(762, 311);
+            this.label1.Location = new System.Drawing.Point(763, 437);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 21);
             this.label1.TabIndex = 46;
@@ -267,7 +234,7 @@ namespace ProjetSuiviePatient.Views.Prescription
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel1.Location = new System.Drawing.Point(853, 331);
+            this.panel1.Location = new System.Drawing.Point(854, 457);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(321, 3);
             this.panel1.TabIndex = 45;
@@ -276,7 +243,7 @@ namespace ProjetSuiviePatient.Views.Prescription
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(748, 199);
+            this.label2.Location = new System.Drawing.Point(749, 328);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 21);
             this.label2.TabIndex = 50;
@@ -285,7 +252,7 @@ namespace ProjetSuiviePatient.Views.Prescription
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel2.Location = new System.Drawing.Point(853, 217);
+            this.panel2.Location = new System.Drawing.Point(854, 346);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(321, 3);
             this.panel2.TabIndex = 49;
@@ -305,15 +272,50 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.txt_resultat.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.txt_resultat.ForeColor = System.Drawing.Color.DimGray;
             this.txt_resultat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_resultat.Location = new System.Drawing.Point(853, 190);
+            this.txt_resultat.Location = new System.Drawing.Point(854, 259);
             this.txt_resultat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_resultat.Multiline = true;
             this.txt_resultat.Name = "txt_resultat";
             this.txt_resultat.PasswordChar = '\0';
             this.txt_resultat.PlaceholderForeColor = System.Drawing.Color.White;
             this.txt_resultat.PlaceholderText = "";
             this.txt_resultat.SelectedText = "";
-            this.txt_resultat.Size = new System.Drawing.Size(321, 26);
+            this.txt_resultat.Size = new System.Drawing.Size(321, 86);
             this.txt_resultat.TabIndex = 48;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProjetSuiviePatient.Properties.Resources.Prescription;
+            this.pictureBox1.Location = new System.Drawing.Point(9, 56);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(644, 513);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 33;
+            this.pictureBox1.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Image = global::ProjetSuiviePatient.Properties.Resources.icons8_minimize_window_32;
+            this.button2.Location = new System.Drawing.Point(1181, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(21, 23);
+            this.button2.TabIndex = 1;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::ProjetSuiviePatient.Properties.Resources.icons8_close_window_32;
+            this.button1.Location = new System.Drawing.Point(1208, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(21, 23);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FormPrescription
             // 
