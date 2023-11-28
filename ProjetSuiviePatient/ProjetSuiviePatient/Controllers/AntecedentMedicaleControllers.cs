@@ -12,13 +12,15 @@ namespace ProjetSuiviePatient.Controllers
     public class AntecedentMedicaleControllers
     {
         AntecedentMedicaleService antecedentMedicaleService;
+        Patient patient;
 
         public AntecedentMedicaleControllers()
         {
             antecedentMedicaleService = new AntecedentMedicaleService();
+            patient = new Patient();
         }
 
-        public Antecedentmedical Save(string TypeAntecedent, string Description, DateTime DateDiagnostic, string Statut, int PatientID)
+        public Antecedentmedical Save(string TypeAntecedent, string Description, DateTime DateDiagnostic, string Statut, Patient patient)
         {
             Antecedentmedical antecedentmedical = new Antecedentmedical
             {
@@ -26,7 +28,7 @@ namespace ProjetSuiviePatient.Controllers
                 Description = Description,
                 DateDiagnostic = DateDiagnostic,
                 Statut = Statut,
-                PatientID = PatientID
+                Patient = this.patient
             };
             return antecedentMedicaleService.Save(antecedentmedical);
         }
@@ -59,6 +61,16 @@ namespace ProjetSuiviePatient.Controllers
         public int PatientID()
         {
             return antecedentMedicaleService.PatientID();
+        }
+
+        public Antecedentmedical FindByName(string name)
+        {
+            return antecedentMedicaleService.FindByName(name);
+        }
+
+        public List<Antecedentmedical> FilterByName(string name)
+        {
+            return antecedentMedicaleService.FilterByName(name);
         }
     }
 }

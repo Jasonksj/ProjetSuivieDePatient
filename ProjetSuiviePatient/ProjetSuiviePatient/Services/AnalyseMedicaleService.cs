@@ -111,5 +111,30 @@ namespace ProjetSuiviePatient.Services
             return analyseMedicaleDAO.PatientID();
         }
 
+        public Analysemedicale FindByName(string name)
+        {
+            List<Analysemedicale> analysemedicales = FindAll();
+            return analysemedicales.Find(analysemedicale => analysemedicale.TypeAnalyse == name);
+        }
+
+        public List<Analysemedicale> FilterByName(string name)
+        {
+            try
+            {
+                return FindAll().Where
+                (
+                    analysemedicale => analysemedicale.TypeAnalyse.IndexOf
+                    (
+                        name,
+                        StringComparison.CurrentCultureIgnoreCase
+                    ) != -1
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur : " + ex.Message);
+            }
+        }
+
     }
 }

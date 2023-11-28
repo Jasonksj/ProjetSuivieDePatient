@@ -12,14 +12,18 @@ namespace ProjetSuiviePatient.Controllers
     public class AnalyseMedicaleControllers
     {
         AnalyseMedicaleService analyseMedicaleService;
+        Patient patient;
+        Medecin medecin;
 
         public AnalyseMedicaleControllers()
         {
             analyseMedicaleService = new AnalyseMedicaleService();
+            patient = new Patient();
+            medecin = new Medecin();
         }
 
         public Analysemedicale Save(DateTime DateAnalyse, string TypeAnalyse, string Resultats, string Laboratoire,
-            string CommentairesResultats, int MedecinID, int PatientID)
+            string CommentairesResultats, Medecin Medecin, Patient Patient)
         {
             Analysemedicale analysemedicale = new Analysemedicale
             {
@@ -28,8 +32,8 @@ namespace ProjetSuiviePatient.Controllers
                 Resultats = Resultats,
                 Laboratoire = Laboratoire,
                 CommentairesResultats = CommentairesResultats,
-                MedecinID = MedecinID,
-                PatientID = PatientID
+                Medecin = medecin,
+                Patient = patient
             };
             return analyseMedicaleService.Save(analysemedicale);
         }
@@ -67,6 +71,16 @@ namespace ProjetSuiviePatient.Controllers
         public int PatientID()
         {
             return analyseMedicaleService.PatientID();
+        }
+
+        public Analysemedicale FindByName(string name)
+        {
+            return analyseMedicaleService.FindByName(name);
+        }
+
+        public List<Analysemedicale> FilterByName(string name)
+        {
+            return analyseMedicaleService.FilterByName(name);
         }
     }
 }

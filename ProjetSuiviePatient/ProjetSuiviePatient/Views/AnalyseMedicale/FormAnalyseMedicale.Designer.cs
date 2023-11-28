@@ -60,6 +60,8 @@ namespace ProjetSuiviePatient.Views.AnalyseMedicale
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.txt_medecin = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_patient = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -252,6 +254,7 @@ namespace ProjetSuiviePatient.Views.AnalyseMedicale
             this.btn_valider.Size = new System.Drawing.Size(154, 37);
             this.btn_valider.TabIndex = 34;
             this.btn_valider.Text = "Valider";
+            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
             // dateAnalyse
             // 
@@ -265,8 +268,9 @@ namespace ProjetSuiviePatient.Views.AnalyseMedicale
             this.medecinID.FormattingEnabled = true;
             this.medecinID.Location = new System.Drawing.Point(853, 357);
             this.medecinID.Name = "medecinID";
-            this.medecinID.Size = new System.Drawing.Size(321, 21);
+            this.medecinID.Size = new System.Drawing.Size(42, 21);
             this.medecinID.TabIndex = 38;
+            this.medecinID.SelectedIndexChanged += new System.EventHandler(this.medecinID_SelectedIndexChanged);
             // 
             // panel13
             // 
@@ -309,8 +313,9 @@ namespace ProjetSuiviePatient.Views.AnalyseMedicale
             this.patientID.FormattingEnabled = true;
             this.patientID.Location = new System.Drawing.Point(853, 411);
             this.patientID.Name = "patientID";
-            this.patientID.Size = new System.Drawing.Size(321, 21);
+            this.patientID.Size = new System.Drawing.Size(42, 21);
             this.patientID.TabIndex = 47;
+            this.patientID.SelectedIndexChanged += new System.EventHandler(this.patientID_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -407,12 +412,64 @@ namespace ProjetSuiviePatient.Views.AnalyseMedicale
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // txt_medecin
+            // 
+            this.txt_medecin.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txt_medecin.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_medecin.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.txt_medecin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_medecin.DefaultText = "";
+            this.txt_medecin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_medecin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_medecin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_medecin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_medecin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_medecin.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txt_medecin.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_medecin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_medecin.Location = new System.Drawing.Point(898, 347);
+            this.txt_medecin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_medecin.Name = "txt_medecin";
+            this.txt_medecin.PasswordChar = '\0';
+            this.txt_medecin.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txt_medecin.PlaceholderText = "";
+            this.txt_medecin.SelectedText = "";
+            this.txt_medecin.Size = new System.Drawing.Size(276, 29);
+            this.txt_medecin.TabIndex = 51;
+            // 
+            // txt_patient
+            // 
+            this.txt_patient.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txt_patient.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_patient.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.txt_patient.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_patient.DefaultText = "";
+            this.txt_patient.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_patient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_patient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_patient.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_patient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_patient.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txt_patient.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_patient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_patient.Location = new System.Drawing.Point(898, 401);
+            this.txt_patient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_patient.Name = "txt_patient";
+            this.txt_patient.PasswordChar = '\0';
+            this.txt_patient.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txt_patient.PlaceholderText = "";
+            this.txt_patient.SelectedText = "";
+            this.txt_patient.Size = new System.Drawing.Size(276, 29);
+            this.txt_patient.TabIndex = 52;
+            // 
             // FormAnalyseMedicale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(1232, 595);
+            this.Controls.Add(this.txt_patient);
+            this.Controls.Add(this.txt_medecin);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txt_resultat);
@@ -445,7 +502,9 @@ namespace ProjetSuiviePatient.Views.AnalyseMedicale
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAnalyseMedicale";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPatient";
+            this.Load += new System.EventHandler(this.FormAnalyseMedicale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -484,5 +543,7 @@ namespace ProjetSuiviePatient.Views.AnalyseMedicale
         private Label label2;
         private Panel panel2;
         private Guna.UI2.WinForms.Guna2TextBox txt_resultat;
+        private Guna.UI2.WinForms.Guna2TextBox txt_medecin;
+        private Guna.UI2.WinForms.Guna2TextBox txt_patient;
     }
 }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace ProjetSuiviePatient.Views.Patient
 {
@@ -32,29 +33,77 @@ namespace ProjetSuiviePatient.Views.Patient
             patientControllers = new PatientControllers();
         }
 
+        private void LoadForm()
+        {
+            if (!isUpdateForm)
+                lblTitle.Text = "AJOUT D'UN PATIENT";
+            else
+            {
+                lblTitle.Text = "MODIFICATION D'UN PATIENT";
+                btn_valider.Text = "Modifier";
+                txt_nom.Text = patient.Nom;
+                txt_prenom.Text = patient.Prenom;
+                dateNaiss.Value = (DateTime)patient.DateNaissance;
+                txt_sexe.Text = patient.Sexe;
+                txt_adresse.Text = patient.Adresse;
+                txt_tel.Text = patient.Telephone;
+                txt_email.Text = patient.Email;
+                dervisite.Value = (DateTime)patient.DerniereVisite;
+                groupsanguin.SelectedText = patient.GroupeSanguin;
+                txt_assurance.Text = patient.NumeroAssuranceMaladie;
+                txt_commentaire.Text = patient.CommentairesMedicaux;
+                txt_nom.Select();
+            }
+        }
+
         private void btn_valider_Click(object sender, EventArgs e)
         {
             try
             {
-                Entities.Patient patientCreated = patientControllers.Save
-                    (txt_nom.Text, txt_prenom.Text, dateNaiss.Value, "", txt_adresse.Text, txt_tel.Text, 
-                    txt_email.Text, dervisite.Value, groupsanguin.SelectedText, txt_assurance.Text, txt_commentaire.Text);
-                if (patientCreated != null)
+                if (isUpdateForm)
                 {
-                    MessageBox.Show
-                       (
-                           $"Création du patient '{patientCreated.Nom}' éffectuée avec succès !",
-                           "Succès",
-                           MessageBoxButtons.OK,
-                           MessageBoxIcon.Information
-                       );
-                    Close();
+                    patient.Nom = txt_nom.Text;
+                    Entities.Patient patientUpdated = patientControllers.Update
+                        (patient);
+                    if (patientUpdated != null)
+                    {
+                        MessageBox.Show
+                            (
+                                "Modification éffectuée avec succès !",
+                                "Succès",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information
+                            );
+                        Close();
+                    }
+                }
+                else
+                {
+                    Entities.Patient patientCreated = patientControllers.Save
+                    (txt_nom.Text, txt_prenom.Text, dateNaiss.Value, txt_sexe.SelectedText, txt_adresse.Text, txt_tel.Text,
+                    txt_email.Text, dervisite.Value, groupsanguin.SelectedText, txt_assurance.Text, txt_commentaire.Text);
+                    if (patientCreated != null)
+                    {
+                        MessageBox.Show
+                           (
+                               $"Création du patient '{patientCreated.Nom}' éffectuée avec succès !",
+                               "Succès",
+                               MessageBoxButtons.OK,
+                               MessageBoxIcon.Information
+                           );
+                        Close();
+                    }
                 }
             }
             catch (Exception ex)
             {
                 throw new Exception("Erreur : " + ex.Message);
             }
+        }
+
+        private void FormPatient_Load(object sender, EventArgs e)
+        {
+            LoadForm();
         }
     }
 }

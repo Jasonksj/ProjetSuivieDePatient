@@ -202,6 +202,7 @@ namespace ProjetSuiviePatient.Views.Patient
             this.btn_ajout.TabIndex = 8;
             this.btn_ajout.Text = "Ajouter";
             this.btn_ajout.UseVisualStyleBackColor = true;
+            this.btn_ajout.Click += new System.EventHandler(this.btn_ajout_Click);
             // 
             // btn_update
             // 
@@ -213,6 +214,7 @@ namespace ProjetSuiviePatient.Views.Patient
             this.btn_update.TabIndex = 8;
             this.btn_update.Text = "Modifier";
             this.btn_update.UseVisualStyleBackColor = true;
+            this.btn_update.Click += new System.EventHandler(this.btn_update_Click);
             // 
             // btn_delete
             // 
@@ -224,6 +226,7 @@ namespace ProjetSuiviePatient.Views.Patient
             this.btn_delete.TabIndex = 8;
             this.btn_delete.Text = "Supprimer";
             this.btn_delete.UseVisualStyleBackColor = true;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_refresh
             // 
@@ -235,6 +238,7 @@ namespace ProjetSuiviePatient.Views.Patient
             this.btn_refresh.TabIndex = 8;
             this.btn_refresh.Text = "Actualiser";
             this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // label3
             // 
@@ -249,6 +253,7 @@ namespace ProjetSuiviePatient.Views.Patient
             // 
             // lblCount
             // 
+            this.lblCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
             this.lblCount.Location = new System.Drawing.Point(290, 854);

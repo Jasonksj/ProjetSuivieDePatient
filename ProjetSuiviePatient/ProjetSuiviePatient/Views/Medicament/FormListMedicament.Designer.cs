@@ -206,6 +206,7 @@ namespace ProjetSuiviePatient.Views.Medicament
             // 
             // lblCount
             // 
+            this.lblCount.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblCount.AutoSize = true;
             this.lblCount.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold);
             this.lblCount.Location = new System.Drawing.Point(290, 865);

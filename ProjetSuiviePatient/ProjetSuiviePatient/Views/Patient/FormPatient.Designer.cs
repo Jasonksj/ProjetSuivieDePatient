@@ -33,7 +33,7 @@ namespace ProjetSuiviePatient.Views.Patient
             this.txt_nom = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.titre = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txt_prenom = new Guna.UI2.WinForms.Guna2TextBox();
@@ -59,9 +59,6 @@ namespace ProjetSuiviePatient.Views.Patient
             this.txt_commentaire = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
             this.dateNaiss = new System.Windows.Forms.DateTimePicker();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.feminin = new System.Windows.Forms.RadioButton();
-            this.masculin = new System.Windows.Forms.RadioButton();
             this.dervisite = new System.Windows.Forms.DateTimePicker();
             this.groupsanguin = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -74,7 +71,7 @@ namespace ProjetSuiviePatient.Views.Patient
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel11.SuspendLayout();
+            this.txt_sexe = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,15 +118,15 @@ namespace ProjetSuiviePatient.Views.Patient
             this.label1.TabIndex = 4;
             this.label1.Text = "Nom";
             // 
-            // titre
+            // lblTitle
             // 
-            this.titre.AutoSize = true;
-            this.titre.Font = new System.Drawing.Font("Rockwell", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titre.Location = new System.Drawing.Point(411, 9);
-            this.titre.Name = "titre";
-            this.titre.Size = new System.Drawing.Size(306, 34);
-            this.titre.TabIndex = 5;
-            this.titre.Text = "AJOUT D\'UN PATIENT";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Rockwell", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(411, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(306, 34);
+            this.lblTitle.TabIndex = 5;
+            this.lblTitle.Text = "AJOUT D\'UN PATIENT";
             // 
             // label3
             // 
@@ -441,37 +438,6 @@ namespace ProjetSuiviePatient.Views.Patient
             this.dateNaiss.Size = new System.Drawing.Size(321, 20);
             this.dateNaiss.TabIndex = 35;
             // 
-            // panel11
-            // 
-            this.panel11.Controls.Add(this.feminin);
-            this.panel11.Controls.Add(this.masculin);
-            this.panel11.Location = new System.Drawing.Point(735, 250);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(321, 26);
-            this.panel11.TabIndex = 36;
-            // 
-            // feminin
-            // 
-            this.feminin.AutoSize = true;
-            this.feminin.Location = new System.Drawing.Point(214, 4);
-            this.feminin.Name = "feminin";
-            this.feminin.Size = new System.Drawing.Size(59, 17);
-            this.feminin.TabIndex = 1;
-            this.feminin.TabStop = true;
-            this.feminin.Text = "Femme";
-            this.feminin.UseVisualStyleBackColor = true;
-            // 
-            // masculin
-            // 
-            this.masculin.AutoSize = true;
-            this.masculin.Location = new System.Drawing.Point(16, 4);
-            this.masculin.Name = "masculin";
-            this.masculin.Size = new System.Drawing.Size(61, 17);
-            this.masculin.TabIndex = 0;
-            this.masculin.TabStop = true;
-            this.masculin.Text = "Homme";
-            this.masculin.UseVisualStyleBackColor = true;
-            // 
             // dervisite
             // 
             this.dervisite.Location = new System.Drawing.Point(180, 531);
@@ -605,12 +571,24 @@ namespace ProjetSuiviePatient.Views.Patient
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // txt_sexe
+            // 
+            this.txt_sexe.FormattingEnabled = true;
+            this.txt_sexe.Items.AddRange(new object[] {
+            "Homme",
+            "Femme"});
+            this.txt_sexe.Location = new System.Drawing.Point(735, 255);
+            this.txt_sexe.Name = "txt_sexe";
+            this.txt_sexe.Size = new System.Drawing.Size(324, 21);
+            this.txt_sexe.TabIndex = 45;
+            // 
             // FormPatient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(1086, 749);
+            this.Controls.Add(this.txt_sexe);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel16);
             this.Controls.Add(this.panel14);
@@ -620,7 +598,6 @@ namespace ProjetSuiviePatient.Views.Patient
             this.Controls.Add(this.txt_assurance);
             this.Controls.Add(this.groupsanguin);
             this.Controls.Add(this.dervisite);
-            this.Controls.Add(this.panel11);
             this.Controls.Add(this.dateNaiss);
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.pictureBox1);
@@ -647,7 +624,7 @@ namespace ProjetSuiviePatient.Views.Patient
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txt_prenom);
-            this.Controls.Add(this.titre);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.txt_nom);
@@ -656,8 +633,7 @@ namespace ProjetSuiviePatient.Views.Patient
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPatient";
             this.Text = "FormPatient";
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
+            this.Load += new System.EventHandler(this.FormPatient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -671,7 +647,7 @@ namespace ProjetSuiviePatient.Views.Patient
         private Guna.UI2.WinForms.Guna2TextBox txt_nom;
         private Panel panel1;
         private Label label1;
-        private Label titre;
+        private Label lblTitle;
         private Label label3;
         private Panel panel2;
         private Guna.UI2.WinForms.Guna2TextBox txt_prenom;
@@ -698,9 +674,6 @@ namespace ProjetSuiviePatient.Views.Patient
         private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button btn_valider;
         private DateTimePicker dateNaiss;
-        private Panel panel11;
-        private RadioButton feminin;
-        private RadioButton masculin;
         private DateTimePicker dervisite;
         private ComboBox groupsanguin;
         private Label label2;
@@ -710,5 +683,6 @@ namespace ProjetSuiviePatient.Views.Patient
         private Panel panel14;
         private Panel panel15;
         private Panel panel16;
+        private ComboBox txt_sexe;
     }
 }

@@ -54,6 +54,7 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.txt_nompatient = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -167,6 +168,7 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
             this.btn_valider.Size = new System.Drawing.Size(154, 37);
             this.btn_valider.TabIndex = 34;
             this.btn_valider.Text = "Valider";
+            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
             // panel13
             // 
@@ -209,8 +211,9 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
             this.patientID.FormattingEnabled = true;
             this.patientID.Location = new System.Drawing.Point(847, 472);
             this.patientID.Name = "patientID";
-            this.patientID.Size = new System.Drawing.Size(321, 21);
+            this.patientID.Size = new System.Drawing.Size(154, 21);
             this.patientID.TabIndex = 47;
+            this.patientID.SelectedIndexChanged += new System.EventHandler(this.patientID_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -332,12 +335,38 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // txt_nompatient
+            // 
+            this.txt_nompatient.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txt_nompatient.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_nompatient.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.txt_nompatient.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_nompatient.DefaultText = "";
+            this.txt_nompatient.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_nompatient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_nompatient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_nompatient.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_nompatient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_nompatient.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txt_nompatient.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_nompatient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_nompatient.Location = new System.Drawing.Point(1001, 462);
+            this.txt_nompatient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_nompatient.Name = "txt_nompatient";
+            this.txt_nompatient.PasswordChar = '\0';
+            this.txt_nompatient.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txt_nompatient.PlaceholderText = "";
+            this.txt_nompatient.SelectedText = "";
+            this.txt_nompatient.Size = new System.Drawing.Size(167, 29);
+            this.txt_nompatient.TabIndex = 54;
+            // 
             // FormAntecedentMedicale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(1232, 705);
+            this.Controls.Add(this.txt_nompatient);
             this.Controls.Add(this.datediagnostic);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel3);
@@ -365,6 +394,7 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormAntecedentMedicale";
             this.Text = "FormPatient";
+            this.Load += new System.EventHandler(this.FormAntecedentMedicale_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -397,5 +427,6 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
         private DateTimePicker datediagnostic;
         private Label label4;
         private Panel panel3;
+        private Guna.UI2.WinForms.Guna2TextBox txt_nompatient;
     }
 }

@@ -105,5 +105,30 @@ namespace ProjetSuiviePatient.Services
         {
             return antecedentMedicaleDAO.PatientID();
         }
+
+        public Antecedentmedical FindByName(string name)
+        {
+            List<Antecedentmedical> antecedentmedicals = FindAll();
+            return antecedentmedicals.Find(antecedentmedical => antecedentmedical.TypeAntecedent == name);
+        }
+
+        public List<Antecedentmedical> FilterByName(string name)
+        {
+            try
+            {
+                return FindAll().Where
+                (
+                    antecedentmedical => antecedentmedical.TypeAntecedent.IndexOf
+                    (
+                        name,
+                        StringComparison.CurrentCultureIgnoreCase
+                    ) != -1
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur : " + ex.Message);
+            }
+        }
     }
 }

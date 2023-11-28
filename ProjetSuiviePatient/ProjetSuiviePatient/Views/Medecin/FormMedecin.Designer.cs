@@ -348,6 +348,7 @@ namespace ProjetSuiviePatient.Views.Medecin
             this.btn_valider.Size = new System.Drawing.Size(154, 37);
             this.btn_valider.TabIndex = 34;
             this.btn_valider.Text = "Valider";
+            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
             // label2
             // 
@@ -547,6 +548,7 @@ namespace ProjetSuiviePatient.Views.Medecin
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMedecin";
             this.Text = "FormPatient";
+            this.Load += new System.EventHandler(this.FormMedecin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
