@@ -450,6 +450,7 @@ namespace ProjetSuiviePatient.Views.Medecin
             this.button2.Size = new System.Drawing.Size(21, 23);
             this.button2.TabIndex = 1;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -462,6 +463,7 @@ namespace ProjetSuiviePatient.Views.Medecin
             this.button1.Size = new System.Drawing.Size(21, 23);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -547,6 +549,7 @@ namespace ProjetSuiviePatient.Views.Medecin
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMedecin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPatient";
             this.Load += new System.EventHandler(this.FormMedecin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

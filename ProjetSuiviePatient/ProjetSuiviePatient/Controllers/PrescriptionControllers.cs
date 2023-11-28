@@ -12,21 +12,24 @@ namespace ProjetSuiviePatient.Controllers
     public class PrescriptionControllers
     {
         PrescriptionService prescriptionService;
-
+        Medecin Medecin;
+        Patient Patient;
         public PrescriptionControllers()
         {
             prescriptionService = new PrescriptionService();
+            Medecin = new Medecin();
+            Patient = new Patient();
         }
 
-        public Prescription Save(DateTime DatePrescription, string PosologieGenerale, string Instruction, int MedecinID, int PatientID)
+        public Prescription Save(DateTime DatePrescription, string PosologieGenerale, string Instruction, Medecin medecin, Patient patient)
         {
             Prescription prescription = new Prescription
             {
                 DatePrescription = DatePrescription,
                 PosologieGenerale = PosologieGenerale,
                 Instructions = Instruction,
-                MedecinID = MedecinID,
-                PatientID = PatientID
+                Medecin = Medecin,
+                Patient = Patient
             };
             return prescriptionService.Save(prescription);
         }
@@ -56,14 +59,14 @@ namespace ProjetSuiviePatient.Controllers
             return prescriptionService.FindById(id);
         }
 
-        public int PatientID()
+        public Prescription FindByName(string name)
         {
-            return prescriptionService.PatientID();
+            return prescriptionService.FindByName(name);
         }
 
-        public int MedecinID()
+        public List<Prescription> FilterByName(string name)
         {
-            return prescriptionService.MedecinID();
+            return prescriptionService.FilterByName(name);
         }
     }
 }

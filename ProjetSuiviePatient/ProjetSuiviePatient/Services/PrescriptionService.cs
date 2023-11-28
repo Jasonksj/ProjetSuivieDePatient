@@ -101,14 +101,29 @@ namespace ProjetSuiviePatient.Services
             }
         }
 
-        public int MedecinID()
+        public Prescription FindByName(string name)
         {
-            return prescriptionDAO.MedecinID();
+            List<Prescription> prescriptions = FindAll();
+            return prescriptions.Find(prescription => prescription.PosologieGenerale == name);
         }
 
-        public int PatientID()
+        public List<Prescription> FilterByName(string name)
         {
-            return prescriptionDAO.PatientID();
+            try
+            {
+                return FindAll().Where
+                (
+                    prescription => prescription.PosologieGenerale.IndexOf
+                    (
+                        name,
+                        StringComparison.CurrentCultureIgnoreCase
+                    ) != -1
+                ).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erreur : " + ex.Message);
+            }
         }
     }
 }

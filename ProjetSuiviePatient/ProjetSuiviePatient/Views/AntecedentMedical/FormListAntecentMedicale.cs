@@ -93,7 +93,7 @@ namespace ProjetSuiviePatient.Views.AntecedentMedical
                     delegate (Entities.Antecedentmedical antecedentmedical)
                     {
                         dataGridView1.Rows.Add(false, antecedentmedical.TypeAntecedent, antecedentmedical.Description, antecedentmedical.DateDiagnostic, antecedentmedical.Statut,
-                                                      antecedentmedical.Patient.Nom.ToString());
+                                                      antecedentmedical.Patient.Nom);
                     }
                 );
         }

@@ -92,5 +92,15 @@ namespace ProjetSuiviePatient.Views.Medecin
         {
             LoadForm();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

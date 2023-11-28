@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetSuiviePatient.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,33 @@ namespace ProjetSuiviePatient.Views.User
 {
     public partial class FormLogin : Form
     {
+        UserControllers userControllers;
         public FormLogin()
         {
             InitializeComponent();
+            userControllers = new UserControllers();
         }
 
         private void FormLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+            string username = Username_txt.Text;
+            string password = password_txt.Text;
+            if(userControllers.Exists(username, password))
+            {
+                MainForm mainForm = new MainForm();
+                mainForm.Show();
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FormRegister formRegister = new FormRegister();
+            formRegister.Show();
         }
     }
 }

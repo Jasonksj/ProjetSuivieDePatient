@@ -35,25 +35,27 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.txt_type = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
+            this.txt_posologie = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_valider = new Guna.UI2.WinForms.Guna2Button();
-            this.dateNaiss = new System.Windows.Forms.DateTimePicker();
-            this.medecinID = new System.Windows.Forms.ComboBox();
+            this.datePrescription = new System.Windows.Forms.DateTimePicker();
             this.panel13 = new System.Windows.Forms.Panel();
             this.panel14 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.patientID = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.txt_resultat = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_instruction = new Guna.UI2.WinForms.Guna2TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.txt_patient = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_medecin = new Guna.UI2.WinForms.Guna2TextBox();
+            this.patientID = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.medecinID = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,49 +105,31 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.panel5.Size = new System.Drawing.Size(321, 3);
             this.panel5.TabIndex = 16;
             // 
-            // txt_type
+            // txt_posologie
             // 
-            this.txt_type.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txt_type.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txt_type.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.txt_type.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_type.DefaultText = "";
-            this.txt_type.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_type.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_type.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_type.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_type.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_type.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.txt_type.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_type.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_type.Location = new System.Drawing.Point(854, 134);
-            this.txt_type.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txt_type.Multiline = true;
-            this.txt_type.Name = "txt_type";
-            this.txt_type.PasswordChar = '\0';
-            this.txt_type.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txt_type.PlaceholderText = "";
-            this.txt_type.SelectedText = "";
-            this.txt_type.Size = new System.Drawing.Size(321, 82);
-            this.txt_type.TabIndex = 15;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(749, 385);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(74, 21);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "Medecin";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel9.Location = new System.Drawing.Point(854, 403);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(321, 3);
-            this.panel9.TabIndex = 28;
+            this.txt_posologie.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txt_posologie.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_posologie.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.txt_posologie.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_posologie.DefaultText = "";
+            this.txt_posologie.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_posologie.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_posologie.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_posologie.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_posologie.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_posologie.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txt_posologie.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_posologie.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_posologie.Location = new System.Drawing.Point(854, 134);
+            this.txt_posologie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_posologie.Multiline = true;
+            this.txt_posologie.Name = "txt_posologie";
+            this.txt_posologie.PasswordChar = '\0';
+            this.txt_posologie.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txt_posologie.PlaceholderText = "";
+            this.txt_posologie.SelectedText = "";
+            this.txt_posologie.Size = new System.Drawing.Size(321, 82);
+            this.txt_posologie.TabIndex = 15;
             // 
             // btn_valider
             // 
@@ -161,21 +145,14 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.btn_valider.Size = new System.Drawing.Size(154, 37);
             this.btn_valider.TabIndex = 34;
             this.btn_valider.Text = "Valider";
+            this.btn_valider.Click += new System.EventHandler(this.btn_valider_Click);
             // 
-            // dateNaiss
+            // datePrescription
             // 
-            this.dateNaiss.Location = new System.Drawing.Point(853, 79);
-            this.dateNaiss.Name = "dateNaiss";
-            this.dateNaiss.Size = new System.Drawing.Size(321, 20);
-            this.dateNaiss.TabIndex = 35;
-            // 
-            // medecinID
-            // 
-            this.medecinID.FormattingEnabled = true;
-            this.medecinID.Location = new System.Drawing.Point(854, 383);
-            this.medecinID.Name = "medecinID";
-            this.medecinID.Size = new System.Drawing.Size(321, 21);
-            this.medecinID.TabIndex = 38;
+            this.datePrescription.Location = new System.Drawing.Point(853, 79);
+            this.datePrescription.Name = "datePrescription";
+            this.datePrescription.Size = new System.Drawing.Size(321, 20);
+            this.datePrescription.TabIndex = 35;
             // 
             // panel13
             // 
@@ -213,32 +190,6 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.panel16.Size = new System.Drawing.Size(3, 592);
             this.panel16.TabIndex = 44;
             // 
-            // patientID
-            // 
-            this.patientID.FormattingEnabled = true;
-            this.patientID.Location = new System.Drawing.Point(854, 437);
-            this.patientID.Name = "patientID";
-            this.patientID.Size = new System.Drawing.Size(321, 21);
-            this.patientID.TabIndex = 47;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(763, 437);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 21);
-            this.label1.TabIndex = 46;
-            this.label1.Text = "Patient";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.panel1.Location = new System.Drawing.Point(854, 457);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(321, 3);
-            this.panel1.TabIndex = 45;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -257,31 +208,31 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.panel2.Size = new System.Drawing.Size(321, 3);
             this.panel2.TabIndex = 49;
             // 
-            // txt_resultat
+            // txt_instruction
             // 
-            this.txt_resultat.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.txt_resultat.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txt_resultat.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.txt_resultat.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_resultat.DefaultText = "";
-            this.txt_resultat.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_resultat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_resultat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_resultat.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_resultat.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_resultat.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.txt_resultat.ForeColor = System.Drawing.Color.DimGray;
-            this.txt_resultat.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_resultat.Location = new System.Drawing.Point(854, 259);
-            this.txt_resultat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txt_resultat.Multiline = true;
-            this.txt_resultat.Name = "txt_resultat";
-            this.txt_resultat.PasswordChar = '\0';
-            this.txt_resultat.PlaceholderForeColor = System.Drawing.Color.White;
-            this.txt_resultat.PlaceholderText = "";
-            this.txt_resultat.SelectedText = "";
-            this.txt_resultat.Size = new System.Drawing.Size(321, 86);
-            this.txt_resultat.TabIndex = 48;
+            this.txt_instruction.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txt_instruction.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_instruction.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.txt_instruction.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_instruction.DefaultText = "";
+            this.txt_instruction.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_instruction.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_instruction.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_instruction.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_instruction.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_instruction.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txt_instruction.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_instruction.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_instruction.Location = new System.Drawing.Point(854, 259);
+            this.txt_instruction.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_instruction.Multiline = true;
+            this.txt_instruction.Name = "txt_instruction";
+            this.txt_instruction.PasswordChar = '\0';
+            this.txt_instruction.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txt_instruction.PlaceholderText = "";
+            this.txt_instruction.SelectedText = "";
+            this.txt_instruction.Size = new System.Drawing.Size(321, 86);
+            this.txt_instruction.TabIndex = 48;
             // 
             // pictureBox1
             // 
@@ -304,6 +255,7 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.button2.Size = new System.Drawing.Size(21, 23);
             this.button2.TabIndex = 1;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -316,6 +268,111 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.button1.Size = new System.Drawing.Size(21, 23);
             this.button1.TabIndex = 0;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txt_patient
+            // 
+            this.txt_patient.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txt_patient.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_patient.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.txt_patient.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_patient.DefaultText = "";
+            this.txt_patient.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_patient.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_patient.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_patient.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_patient.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_patient.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txt_patient.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_patient.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_patient.Location = new System.Drawing.Point(899, 430);
+            this.txt_patient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_patient.Name = "txt_patient";
+            this.txt_patient.PasswordChar = '\0';
+            this.txt_patient.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txt_patient.PlaceholderText = "";
+            this.txt_patient.SelectedText = "";
+            this.txt_patient.Size = new System.Drawing.Size(276, 29);
+            this.txt_patient.TabIndex = 60;
+            // 
+            // txt_medecin
+            // 
+            this.txt_medecin.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.txt_medecin.BorderColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txt_medecin.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.txt_medecin.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_medecin.DefaultText = "";
+            this.txt_medecin.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_medecin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_medecin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_medecin.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_medecin.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_medecin.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.txt_medecin.ForeColor = System.Drawing.Color.DimGray;
+            this.txt_medecin.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_medecin.Location = new System.Drawing.Point(899, 376);
+            this.txt_medecin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_medecin.Name = "txt_medecin";
+            this.txt_medecin.PasswordChar = '\0';
+            this.txt_medecin.PlaceholderForeColor = System.Drawing.Color.White;
+            this.txt_medecin.PlaceholderText = "";
+            this.txt_medecin.SelectedText = "";
+            this.txt_medecin.Size = new System.Drawing.Size(276, 29);
+            this.txt_medecin.TabIndex = 59;
+            // 
+            // patientID
+            // 
+            this.patientID.FormattingEnabled = true;
+            this.patientID.Location = new System.Drawing.Point(854, 440);
+            this.patientID.Name = "patientID";
+            this.patientID.Size = new System.Drawing.Size(42, 21);
+            this.patientID.TabIndex = 58;
+            this.patientID.SelectedIndexChanged += new System.EventHandler(this.patientID_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(763, 440);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 21);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "Patient";
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel1.Location = new System.Drawing.Point(854, 460);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(321, 3);
+            this.panel1.TabIndex = 56;
+            // 
+            // medecinID
+            // 
+            this.medecinID.FormattingEnabled = true;
+            this.medecinID.Location = new System.Drawing.Point(854, 386);
+            this.medecinID.Name = "medecinID";
+            this.medecinID.Size = new System.Drawing.Size(42, 21);
+            this.medecinID.TabIndex = 55;
+            this.medecinID.SelectedIndexChanged += new System.EventHandler(this.medecinID_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(749, 388);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 21);
+            this.label10.TabIndex = 54;
+            this.label10.Text = "Medecin";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel9.Location = new System.Drawing.Point(854, 406);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(321, 3);
+            this.panel9.TabIndex = 53;
             // 
             // FormPrescription
             // 
@@ -323,25 +380,27 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ClientSize = new System.Drawing.Size(1232, 595);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.txt_resultat);
+            this.Controls.Add(this.txt_patient);
+            this.Controls.Add(this.txt_medecin);
             this.Controls.Add(this.patientID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.medecinID);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.txt_instruction);
             this.Controls.Add(this.panel15);
             this.Controls.Add(this.panel16);
             this.Controls.Add(this.panel14);
             this.Controls.Add(this.panel13);
-            this.Controls.Add(this.medecinID);
-            this.Controls.Add(this.dateNaiss);
+            this.Controls.Add(this.datePrescription);
             this.Controls.Add(this.btn_valider);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.panel9);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.txt_type);
+            this.Controls.Add(this.txt_posologie);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.titre);
@@ -349,7 +408,9 @@ namespace ProjetSuiviePatient.Views.Prescription
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPrescription";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPatient";
+            this.Load += new System.EventHandler(this.FormPrescription_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -365,22 +426,24 @@ namespace ProjetSuiviePatient.Views.Prescription
         private Panel panel3;
         private Label label6;
         private Panel panel5;
-        private Guna.UI2.WinForms.Guna2TextBox txt_type;
-        private Label label10;
-        private Panel panel9;
+        private Guna.UI2.WinForms.Guna2TextBox txt_posologie;
         private PictureBox pictureBox1;
         private Guna.UI2.WinForms.Guna2Button btn_valider;
-        private DateTimePicker dateNaiss;
-        private ComboBox medecinID;
+        private DateTimePicker datePrescription;
         private Panel panel13;
         private Panel panel14;
         private Panel panel15;
         private Panel panel16;
+        private Label label2;
+        private Panel panel2;
+        private Guna.UI2.WinForms.Guna2TextBox txt_instruction;
+        private Guna.UI2.WinForms.Guna2TextBox txt_patient;
+        private Guna.UI2.WinForms.Guna2TextBox txt_medecin;
         private ComboBox patientID;
         private Label label1;
         private Panel panel1;
-        private Label label2;
-        private Panel panel2;
-        private Guna.UI2.WinForms.Guna2TextBox txt_resultat;
+        private ComboBox medecinID;
+        private Label label10;
+        private Panel panel9;
     }
 }

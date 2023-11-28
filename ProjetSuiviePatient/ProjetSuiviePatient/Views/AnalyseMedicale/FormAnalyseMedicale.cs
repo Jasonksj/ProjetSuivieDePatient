@@ -140,5 +140,15 @@ namespace ProjetSuiviePatient.Views.AnalyseMedicale
                 txt_patient.Text = string.Empty;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

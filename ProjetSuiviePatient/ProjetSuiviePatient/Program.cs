@@ -1,5 +1,6 @@
 ﻿using ProjetSuiviePatient.Views;
 using ProjetSuiviePatient.Views.Patient;
+using ProjetSuiviePatient.Views.User;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace ProjetSuiviePatient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new FormLogin());
         }
     }
 }

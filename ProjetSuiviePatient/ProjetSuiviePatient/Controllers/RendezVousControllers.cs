@@ -12,19 +12,22 @@ namespace ProjetSuiviePatient.Controllers
     public class RendezVousControllers
     {
         RendezVousService rendezVousService;
-
+        Patient Patient;
+        Medecin Medecin;
         public RendezVousControllers()
         {
             rendezVousService = new RendezVousService();
+            Patient = new Patient();
+            Medecin = new Medecin();
         }
 
-        public Rendezvou Save(DateTime DateHeure, int MedecinID, int PatientID, string Motif, string Statut, string Remarques, string Urgence)
+        public Rendezvou Save(DateTime DateHeure, Medecin medecin, Patient patient, string Motif, string Statut, string Remarques, string Urgence)
         {
             Rendezvou rendezvous = new Rendezvou
             {
                 DateHeure = DateHeure,
-                MedecinID = MedecinID,
-                PatientID = PatientID,
+                Medecin = Medecin,
+                Patient = Patient,
                 Motif = Motif,
                 Statut = Statut,
                 Remarques = Remarques,
@@ -58,14 +61,14 @@ namespace ProjetSuiviePatient.Controllers
             return rendezVousService.FindById(id);
         }
 
-        public int PatientID()
+        public Rendezvou FindByName(string name)
         {
-            return rendezVousService.PatientID();
+            return rendezVousService.FindByName(name);
         }
 
-        public int MedecinID()
+        public List<Rendezvou> FilterByName(string name)
         {
-            return rendezVousService.MedecinID();
+            return rendezVousService.FilterByName(name);
         }
     }
 }
