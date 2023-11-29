@@ -1,0 +1,33 @@
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\bin\Debug\Projet Marche.exe.config
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\bin\Debug\Projet Marche.exe
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\bin\Debug\Projet Marche.pdb
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\bin\Debug\EntityFramework.dll
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\bin\Debug\Guna.UI2.dll
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\bin\Debug\EntityFramework.xml
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\bin\Debug\fr\EntityFramework.SqlServer.resources.dll
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet Marche.csproj.AssemblyReference.cache
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Properties.Resources.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.Client.FormClient.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.Client.FormListClient.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.Commande.FormCommande.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.Commande.FormListCommande.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.DetailCommande.FormDetailCommande.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.DetailCommande.FormListDetailCommande.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.Fournisseur.FormFournisseur.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.Fournisseur.FormListFournisseur.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.MainForm.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.Marche.FormListMarche.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.Marche.FormMarche.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.Produit.FormListProduit.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.Produit.FormProduit.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\ProjetSuiviePatient.Views.SplashScreen.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.User.FormLogin.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet_Marche.Views.User.FormRegister.resources
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet Marche.csproj.GenerateResource.cache
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet Marche.csproj.CoreCompileInputs.cache
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet Marche.csproj.CopyComplete
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet Marche.exe
+C:\Users\Jason Kamsu\Desktop\Projet Marche\Projet Marche\obj\Debug\Projet Marche.pdb

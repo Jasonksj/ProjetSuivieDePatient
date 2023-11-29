@@ -1,0 +1,323 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1CC1B938-9D58-426C-A42B-BF29DCCBCC44}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Projet_Marche</RootNamespace>
+    <AssemblyName>Projet Marche</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\ClientControllers.cs" />
+    <Compile Include="Controllers\CommandeControllers.cs" />
+    <Compile Include="Controllers\DetailCommandeControllers.cs" />
+    <Compile Include="Controllers\FournisseurControllers.cs" />
+    <Compile Include="Controllers\MarchéControllers.cs" />
+    <Compile Include="Controllers\ProduitControllers.cs" />
+    <Compile Include="Controllers\UserControllers.cs" />
+    <Compile Include="DAO\ClientDAO.cs" />
+    <Compile Include="DAO\CommandeDAO.cs" />
+    <Compile Include="DAO\DetailCommandeDAO.cs" />
+    <Compile Include="DAO\FournisseurDAO.cs" />
+    <Compile Include="DAO\MarcheDAO.cs" />
+    <Compile Include="DAO\ProduitDAO.cs" />
+    <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="Entities\Client.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Commande.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\DetailsCommande.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Fournisseur.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\March.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Produit.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Utilisateur.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ClientService.cs" />
+    <Compile Include="Services\CommandeService.cs" />
+    <Compile Include="Services\DetailCommandeService.cs" />
+    <Compile Include="Services\FournisseurService.cs" />
+    <Compile Include="Services\MarcheService.cs" />
+    <Compile Include="Services\ProduitService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Views\Client\FormClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Client\FormClient.Designer.cs">
+      <DependentUpon>FormClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Client\FormListClient.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Client\FormListClient.Designer.cs">
+      <DependentUpon>FormListClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Commande\FormCommande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Commande\FormCommande.Designer.cs">
+      <DependentUpon>FormCommande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Commande\FormListCommande.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Commande\FormListCommande.Designer.cs">
+      <DependentUpon>FormListCommande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailCommande\FormDetailCommande.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\DetailCommande\FormDetailCommande.Designer.cs">
+      <DependentUpon>FormDetailCommande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailCommande\FormListDetailCommande.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\DetailCommande\FormListDetailCommande.Designer.cs">
+      <DependentUpon>FormListDetailCommande.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fournisseur\FormFournisseur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Fournisseur\FormFournisseur.Designer.cs">
+      <DependentUpon>FormFournisseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Fournisseur\FormListFournisseur.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Fournisseur\FormListFournisseur.Designer.cs">
+      <DependentUpon>FormListFournisseur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Marche\FormListMarche.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Marche\FormListMarche.Designer.cs">
+      <DependentUpon>FormListMarche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Marche\FormMarche.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Marche\FormMarche.Designer.cs">
+      <DependentUpon>FormMarche.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Produit\FormListProduit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Produit\FormListProduit.Designer.cs">
+      <DependentUpon>FormListProduit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Produit\FormProduit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Produit\FormProduit.Designer.cs">
+      <DependentUpon>FormProduit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\User\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\FormRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\User\FormRegister.Designer.cs">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Views\Client\FormClient.resx">
+      <DependentUpon>FormClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Client\FormListClient.resx">
+      <DependentUpon>FormListClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Commande\FormCommande.resx">
+      <DependentUpon>FormCommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Commande\FormListCommande.resx">
+      <DependentUpon>FormListCommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailCommande\FormDetailCommande.resx">
+      <DependentUpon>FormDetailCommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\DetailCommande\FormListDetailCommande.resx">
+      <DependentUpon>FormListDetailCommande.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Fournisseur\FormFournisseur.resx">
+      <DependentUpon>FormFournisseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Fournisseur\FormListFournisseur.resx">
+      <DependentUpon>FormListFournisseur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Marche\FormListMarche.resx">
+      <DependentUpon>FormListMarche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Marche\FormMarche.resx">
+      <DependentUpon>FormMarche.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Produit\FormListProduit.resx">
+      <DependentUpon>FormListProduit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Produit\FormProduit.resx">
+      <DependentUpon>FormProduit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\User\FormRegister.resx">
+      <DependentUpon>FormRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Entities\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Entities\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Entities\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <Content Include="Entities\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\produit.png" />
+    <None Include="Resources\marche.png" />
+    <None Include="Resources\fournisseur2.png" />
+    <None Include="Resources\fournisseur.png" />
+    <None Include="Resources\detailCommande.png" />
+    <None Include="Resources\commande.png" />
+    <None Include="Resources\client.png" />
+    <None Include="Resources\icons8_minimize_window_32.png" />
+    <None Include="Resources\icons8_close_window_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

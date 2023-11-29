@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MarchesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clients">
+    <Key>
+      <PropertyRef Name="ClientID" />
+    </Key>
+    <Property Name="ClientID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomClient" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="AdresseClient" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="EmailClient" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Commandes">
+    <Key>
+      <PropertyRef Name="CommandeID" />
+    </Key>
+    <Property Name="CommandeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateCommande" Type="date" Nullable="false" />
+    <Property Name="MontantTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="FournisseurID" Type="int" />
+    <Property Name="ClientID" Type="int" />
+    <Property Name="MarcheID" Type="int" />
+  </EntityType>
+  <EntityType Name="DetailsCommande">
+    <Key>
+      <PropertyRef Name="DetailID" />
+    </Key>
+    <Property Name="DetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CommandeID" Type="int" />
+    <Property Name="ProduitID" Type="int" />
+    <Property Name="Quantite" Type="int" Nullable="false" />
+    <Property Name="PrixUnitaire" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="MontantTotal" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fournisseurs">
+    <Key>
+      <PropertyRef Name="FournisseurID" />
+    </Key>
+    <Property Name="FournisseurID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomFournisseur" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Adresse" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Marches">
+    <Key>
+      <PropertyRef Name="MarcheID" />
+    </Key>
+    <Property Name="MarcheID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomMarche" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="AdresseMarche" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Produits">
+    <Key>
+      <PropertyRef Name="ProduitID" />
+    </Key>
+    <Property Name="ProduitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomProduit" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Prix" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Stock" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utilisateur">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nom" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MotdePasse" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Commandes__Clien__2D27B809">
+    <End Role="Clients" Type="Self.Clients" Multiplicity="0..1" />
+    <End Role="Commandes" Type="Self.Commandes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clients">
+        <PropertyRef Name="ClientID" />
+      </Principal>
+      <Dependent Role="Commandes">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Commandes__Fourn__2C3393D0">
+    <End Role="Fournisseurs" Type="Self.Fournisseurs" Multiplicity="0..1" />
+    <End Role="Commandes" Type="Self.Commandes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fournisseurs">
+        <PropertyRef Name="FournisseurID" />
+      </Principal>
+      <Dependent Role="Commandes">
+        <PropertyRef Name="FournisseurID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Commandes__March__2E1BDC42">
+    <End Role="Marches" Type="Self.Marches" Multiplicity="0..1" />
+    <End Role="Commandes" Type="Self.Commandes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marches">
+        <PropertyRef Name="MarcheID" />
+      </Principal>
+      <Dependent Role="Commandes">
+        <PropertyRef Name="MarcheID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetailsCo__Comma__38996AB5">
+    <End Role="Commandes" Type="Self.Commandes" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DetailsCommande" Type="Self.DetailsCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commandes">
+        <PropertyRef Name="CommandeID" />
+      </Principal>
+      <Dependent Role="DetailsCommande">
+        <PropertyRef Name="CommandeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DetailsCo__Produ__398D8EEE">
+    <End Role="Produits" Type="Self.Produits" Multiplicity="0..1" />
+    <End Role="DetailsCommande" Type="Self.DetailsCommande" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produits">
+        <PropertyRef Name="ProduitID" />
+      </Principal>
+      <Dependent Role="DetailsCommande">
+        <PropertyRef Name="ProduitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MarchesModelStoreContainer">
+    <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Commandes" EntityType="Self.Commandes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailsCommande" EntityType="Self.DetailsCommande" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fournisseurs" EntityType="Self.Fournisseurs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Marches" EntityType="Self.Marches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Produits" EntityType="Self.Produits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Commandes__Clien__2D27B809" Association="Self.FK__Commandes__Clien__2D27B809">
+      <End Role="Clients" EntitySet="Clients" />
+      <End Role="Commandes" EntitySet="Commandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Commandes__Fourn__2C3393D0" Association="Self.FK__Commandes__Fourn__2C3393D0">
+      <End Role="Fournisseurs" EntitySet="Fournisseurs" />
+      <End Role="Commandes" EntitySet="Commandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Commandes__March__2E1BDC42" Association="Self.FK__Commandes__March__2E1BDC42">
+      <End Role="Marches" EntitySet="Marches" />
+      <End Role="Commandes" EntitySet="Commandes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetailsCo__Comma__38996AB5" Association="Self.FK__DetailsCo__Comma__38996AB5">
+      <End Role="Commandes" EntitySet="Commandes" />
+      <End Role="DetailsCommande" EntitySet="DetailsCommande" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DetailsCo__Produ__398D8EEE" Association="Self.FK__DetailsCo__Produ__398D8EEE">
+      <End Role="Produits" EntitySet="Produits" />
+      <End Role="DetailsCommande" EntitySet="DetailsCommande" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

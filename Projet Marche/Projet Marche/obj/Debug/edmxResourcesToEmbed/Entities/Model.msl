@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MarchesModelStoreContainer" CdmEntityContainer="MarchesEntities">
+    <EntitySetMapping Name="Clients">
+      <EntityTypeMapping TypeName="MarchesModel.Client">
+        <MappingFragment StoreEntitySet="Clients">
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="NomClient" ColumnName="NomClient" />
+          <ScalarProperty Name="AdresseClient" ColumnName="AdresseClient" />
+          <ScalarProperty Name="EmailClient" ColumnName="EmailClient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commandes">
+      <EntityTypeMapping TypeName="MarchesModel.Commande">
+        <MappingFragment StoreEntitySet="Commandes">
+          <ScalarProperty Name="CommandeID" ColumnName="CommandeID" />
+          <ScalarProperty Name="DateCommande" ColumnName="DateCommande" />
+          <ScalarProperty Name="MontantTotal" ColumnName="MontantTotal" />
+          <ScalarProperty Name="FournisseurID" ColumnName="FournisseurID" />
+          <ScalarProperty Name="ClientID" ColumnName="ClientID" />
+          <ScalarProperty Name="MarcheID" ColumnName="MarcheID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailsCommandes">
+      <EntityTypeMapping TypeName="MarchesModel.DetailsCommande">
+        <MappingFragment StoreEntitySet="DetailsCommande">
+          <ScalarProperty Name="DetailID" ColumnName="DetailID" />
+          <ScalarProperty Name="CommandeID" ColumnName="CommandeID" />
+          <ScalarProperty Name="ProduitID" ColumnName="ProduitID" />
+          <ScalarProperty Name="Quantite" ColumnName="Quantite" />
+          <ScalarProperty Name="PrixUnitaire" ColumnName="PrixUnitaire" />
+          <ScalarProperty Name="MontantTotal" ColumnName="MontantTotal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fournisseurs">
+      <EntityTypeMapping TypeName="MarchesModel.Fournisseur">
+        <MappingFragment StoreEntitySet="Fournisseurs">
+          <ScalarProperty Name="FournisseurID" ColumnName="FournisseurID" />
+          <ScalarProperty Name="NomFournisseur" ColumnName="NomFournisseur" />
+          <ScalarProperty Name="Adresse" ColumnName="Adresse" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marches">
+      <EntityTypeMapping TypeName="MarchesModel.March">
+        <MappingFragment StoreEntitySet="Marches">
+          <ScalarProperty Name="MarcheID" ColumnName="MarcheID" />
+          <ScalarProperty Name="NomMarche" ColumnName="NomMarche" />
+          <ScalarProperty Name="AdresseMarche" ColumnName="AdresseMarche" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produits">
+      <EntityTypeMapping TypeName="MarchesModel.Produit">
+        <MappingFragment StoreEntitySet="Produits">
+          <ScalarProperty Name="ProduitID" ColumnName="ProduitID" />
+          <ScalarProperty Name="NomProduit" ColumnName="NomProduit" />
+          <ScalarProperty Name="Prix" ColumnName="Prix" />
+          <ScalarProperty Name="Stock" ColumnName="Stock" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utilisateurs">
+      <EntityTypeMapping TypeName="MarchesModel.Utilisateur">
+        <MappingFragment StoreEntitySet="Utilisateur">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="MotdePasse" ColumnName="MotdePasse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
